@@ -10,5 +10,5 @@ public interface MemberDAO {
 	public MemberDTO detail(String userId);
 	public void delete(String userId);
 	public void update(MemberDTO dto);
-	public boolean check_password(String userId, String userPw);
+	public boolean checkPassword(String userId, String userPw);
 }

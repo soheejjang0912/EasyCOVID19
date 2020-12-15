@@ -1,6 +1,9 @@
 package com.soheejjang.easycovid19.model.dao;
 
-import java.util.List;
+ 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List; 
 
 import javax.inject.Inject;
 
@@ -35,21 +38,27 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public void delete(String userId) {
-		// TODO Auto-generated method stub
-		
+	public void delete(String userId) { 
+		sqlSession.delete("member.delete", userId);
 	}
 
 	@Override
 	public void update(MemberDTO dto) {
-		// TODO Auto-generated method stub
-		
+		sqlSession.update("member.update", dto);
 	}
 
 	@Override
-	public boolean check_password(String userId, String userPw) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean checkPassword(String userId, String userPw) {
+		boolean result = false;
+		//mybatis mapper에 전달할 값이 2개 이상인 경우
+		//dto또는 맵으로 전달
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("userId", userId);
+		map.put("userPw", userPw);
+		int count = sqlSession.selectOne("member.checkPassword",map); //selectOne은 하나밖에 못보내서 map으로 묶어 전달해야함
+		if(count==1)
+			result = true; 
+		return result;
 	}
 
 }
