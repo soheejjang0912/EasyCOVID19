@@ -23,7 +23,7 @@
 	<tr>
 		<td>${row.userId}</td>
 		<%-- <td>${row.name}</td> --%>
-		<td><a href="member/view.do?userId=${row.userId}">${row.name}</a></td>
+		<td><a href="/member/view.do?userId=${row.userId}">${row.name}</a></td>
 		<td>${row.email}</td>
 		<%-- <td>${row.join_date}</td> --%>
 		<td><fmt:formatDate value="${row.join_date}" 

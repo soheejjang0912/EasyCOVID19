@@ -9,7 +9,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-
+<script type="text/javascript">
+	$(function(){
+		//수정버튼 클릭
+		$("#btnUpdate").click(function(){
+			document.form1.action = "/member/update.do";
+			document.form1.submit();
+		});
+		//삭제버튼 클릭
+		$("#btnDelete").click(function(){
+			if(confirm("삭제하시겠습니까?")){
+				document.form1.action= "/member/delete.do";
+				document.form1.submit()
+			}
+		});
+	});
+</script>
 </head>
 <body>
 	<h2>회원정보</h2>
