@@ -18,5 +18,10 @@ public class MemberController {
 
 	@Inject //객체관리를 직접 안하고 스프링에서 해주게 하는것 
 	MemberDAO memberDao;
-	 
+	
+	//회원 등록폼으로 이동
+	@RequestMapping("login.do")
+	public String write() {
+		return "login";
+	}
 }

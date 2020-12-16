@@ -1,4 +1,6 @@
+/*
 package com.soheejjang.easycovid19.controller;
+
 
 import java.util.List;
 
@@ -81,3 +83,4 @@ public class Study_MemberController {
 		}
 	}
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.soheejjang.easycovid19.controller;
 
 import java.util.HashMap;
@@ -133,6 +134,6 @@ public class Study_MainController {
 		return "test/ajax_gugu_result";
 	}
 }
-
+*/
  
  
