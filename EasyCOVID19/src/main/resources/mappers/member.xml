@@ -8,11 +8,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from member order by name 
 	</select>
 	
-	<insert id = "insert"> 
+	<insert id ="joinAction"> 
 		insert into member(userId, userPw, name, email)
 		values
 		(#{userId}, #{userPw}, #{name}, #{email})
 	</insert>
+	
+	<select id ="loginCheck" resultType="String">
+		select name from member
+		where userId = #{userId} and userPw = #{userPw}
+	</select>
 	
 	<select id="detail"
 		resultType="com.soheejjang.easycovid19.model.dto.MemberDTO">

@@ -12,10 +12,10 @@ import org.springframework.stereotype.Repository;
 
 import com.soheejjang.easycovid19.model.dto.MemberDTO;
 
-@Repository
+@Repository //잊지않기!
 public class MemberDAOImpl implements MemberDAO {
 
-	@Inject
+	@Inject //마이바티스 해야하니까!
 	SqlSession sqlSession;
 
 	@Override
@@ -25,9 +25,14 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public void insert(MemberDTO dto) {
-		sqlSession.insert("member.insert", dto);
-		
+	public void joinAction(MemberDTO dto) {
+		sqlSession.insert("member.joinAction", dto); 
+	}
+	
+
+	@Override
+	public String loginCheck(MemberDTO dto) { 
+		return sqlSession.selectOne("member.loginCheck", dto);
 	}
 
 	//selectOne() 레코드가 1개
@@ -60,5 +65,6 @@ public class MemberDAOImpl implements MemberDAO {
 			result = true; 
 		return result;
 	}
+
 
 }

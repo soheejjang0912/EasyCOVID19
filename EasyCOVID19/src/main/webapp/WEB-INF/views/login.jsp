@@ -1,125 +1,86 @@
-<!DOCTYPE jsp>
-<jsp lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!DOCTYPE html>
+<html lang="en">
 <jsp:include page="header.jsp"/>
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+$(function(){
+	$("#btnLogin").click(function(){ 
+		var userId = $("#userId").val();
+		var userPw = $("#userPw").val();
 
-      <!-- end header -->
+		console.log(userId);
+		if(userId == ""){
+			alert("아이디를 입력하세요");
+			$("#userId").focus();
+			return;
+		}
+		if(userPw == ""){
+			alert("비밀번호를 입력하세요.");
+			$("#userPw").focus();
+			return;
+		}
+		document.loginForm.action="loginCheck.do"
+		document.loginForm.submit();
+		
+	});
+});
+</script>  
 
-      <!-- contact -->
+     <!-- contact -->
      <div class="contact">
          <div class="container">
             <div class="row">
                 <div class="col-md-12">
                      <div class="titlepage text_align_left">
-                        <h2>Contact Us</h2>
+                        <h2>LOGIN</h2>
                      </div>
                   </div>
             </div>
             <div class="row">
-               <div class="col-md-6">
-                  <form id="request" class="main_form">
+               <div class="col-md-12">
+                  <form id="loginForm" name="loginForm" method="post" class="main_form">
                      <div class="row">
                         <div class="col-md-12 ">
-                           <input class="contactus" placeholder="Full Name" type="type" name=" Name"> 
+                        	<h2>아이디</h2> 
+                           <input id="userId" name="userId" class="contactus" placeholder="ID" type="text"> 
                         </div>
                         <div class="col-md-12">
-                           <input class="contactus" placeholder="Phone" type="type" name="Phone Number">                          
+                        	<h2>비밀번호</h2> 
+                           <input id="userPw" name="userPw" class="contactus" placeholder="Password" type="password">                          
                         </div>
                         <div class="col-md-12">
-                           <input class="contactus" placeholder="Email" type="type" name="Email"> 
-                        </div>
-                        <div class="col-md-12">
-                           <textarea class="textarea" placeholder="Message" type="type" Message="Name"></textarea>
-                        </div>
-                        <div class="col-md-12">
-                           <button class="send_btn">Send Now</button>
+                        	<c:if test="${param.message == 'nologin' }">
+	                           	<div style="color:red;">
+	                           		먼저 로그인 하세요.
+	                           	</div>
+                           	</c:if> 
+                           
+                           <c:if test="${message=='error'}"> 
+	                           	<div style="color:red;">
+	                           		아이디 또는 비밀번호가 일치하지 않습니다.
+	                           	</div>
+                           </c:if>
+                           
+                           <c:if test="${message == 'logout' }">
+	                           	<div style="color:red;">
+	                           		로그아웃 되었습니다.
+	                           	</div>
+                           </c:if>
+                           &nbsp; 
+                           <button type="button" id="btnLogin" class="send_btn">LOGIN</button>
+                           &nbsp; 
+                             
                         </div>
                      </div>
                   </form>
-               </div>
-                <div class="col-md-6">
-                  <div class="map-responsive">
-                     <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Eiffel+Tower+Paris+France" width="600" height="540" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
-                  </div>
-               </div>
+               </div>  
             </div>
          </div>
       </div>
       <!-- end contact -->
       <!--  footer -->
-      <footer>
-         <div class="footer">
-            <div class="container">
-               <div class="row">
-                        <div class="col-lg-2 col-md-6 col-sm-6">
-                           <div class="hedingh3 text_align_left">
-                              <h3>Resources</h3>
-                              <ul class="menu_footer">
-                                 <li><a href="index.jsp">Home</a><li>
-                                 <li><a href="javascript:void(0)">What we do</a><li>
-                                 <li> <a href="javascript:void(0)">Media</a><li>
-                                 <li> <a href="javascript:void(0)">Travel Advice</a><li>
-                                 <li><a href="javascript:void(0)">Protection</a><li>
-                                 <li><a href="javascript:void(0)">Care</a><li>
-                              </ul>
-                             
-           
-                           </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                           <div class="hedingh3 text_align_left">
-                             <h3>About</h3>
-                              <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various</p>
-                           </div>
-                        </div>
-                     
-                
-                       
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                           <div class="hedingh3  text_align_left">
-                              <h3>Contact  Us</h3>
-                                <ul class="top_infomation">
-                        <li><i class="fa fa-map-marker" aria-hidden="true"></i>
-                           Making this the first true  
-                        </li>
-                        <li><i class="fa fa-phone" aria-hidden="true"></i>
-                           Call : +01 1234567890
-                        </li>
-                        <li><i class="fa fa-envelope" aria-hidden="true"></i>
-                           <a href="Javascript:void(0)">Email : demo@gmail.com</a>
-                        </li>
-                     </ul>
-                            
-                           
-                     </div>
-                  </div>
-                     <div class="col-lg-4 col-md-6 col-sm-6">
-                           <div class="hedingh3 text_align_left">
-                              <h3>countrys</h3>
-                              <div class="map">
-                                <img src="<%=request.getContextPath()%>/resources/images/map.png" alt="#"/>
-                              </div>
-                           </div>
-                        </div>
-                    
-               </div>
-            </div>
-            <div class="copyright">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-md-8 offset-md-2">
-                        <p>© 2020 All Rights Reserved. Design by <a href="https://jsp.design/"> Free jsp Templates</a></p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </footer>
-      <!-- end footer -->
-      <!-- Javascript files-->
-      <script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
-      <script src="<%=request.getContextPath()%>/resources/js/bootstrap.bundle.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-      <script src="<%=request.getContextPath()%>/resources/js/owl.carousel.min.js"></script>
-      <script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
-   </body>
-</jsp>
+<jsp:include page="footer.jsp"/>    

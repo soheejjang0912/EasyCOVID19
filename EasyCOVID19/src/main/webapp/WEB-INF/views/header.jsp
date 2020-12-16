@@ -65,7 +65,8 @@
                               <li><a href="news.jsp">news</a></li>
                               <li><a href="doctores.jsp">doctores</a></li>
                                
-                              <li><a href="login.do">Contact </a></li>
+                              <li><a href="login.do">LOGIN</a></li>
+                              <li><a href="join.do">JOIN</a></li>
                            </ul>
                            <button class="nav-toggler">
                            <span></span>
