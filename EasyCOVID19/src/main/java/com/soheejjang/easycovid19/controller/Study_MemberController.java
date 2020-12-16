@@ -14,7 +14,7 @@ import com.soheejjang.easycovid19.model.dao.MemberDAO;
 import com.soheejjang.easycovid19.model.dto.MemberDTO;
 
 @Controller //현재클래스가 스프링에서 관리하는 컨트롤러라고 등록한 것 
-public class MemberController {
+public class Study_MemberController {
 
 	@Inject //객체관리를 직접 안하고 스프링에서 해주게 하는것 
 	MemberDAO memberDao;
@@ -56,10 +56,28 @@ public class MemberController {
 		} else {
 			//가입일자가 지워지지 않도록 처리
 			MemberDTO dto2 = memberDao.detail(dto.getUserId());
-			dto.setJoin_date(dto2.getJoin_date());
+			dto.setJoinDate(dto2.getJoinDate());
+			model.addAttribute("dto", dto);
 			model.addAttribute("message", "비밀번호가 일치하지 않습니다.");
 			return "member/detail";
 		}
 	}
 	
+	@RequestMapping("member/delete.do")
+	public String delete(@RequestParam String userId, @RequestParam String userPw, Model model) {
+		//비밀번호 체크
+		boolean result = memberDao.checkPassword(userId, userPw);
+		if(result) {
+			//삭제처리
+			memberDao.delete(userId);
+			//회원 목록으로 이동
+			return "redirect:/member/list.do";
+		}else {
+			//비번이 틀렸을 떄
+			model.addAttribute("message", "비밀번호가 일치하지 않습니다.");
+			model.addAttribute("dto", memberDao.detail(userId));
+			//detail.jsp로 포워드
+			return "member/detail";
+		}
+	}
 }

@@ -17,8 +17,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="detail"
 		resultType="com.soheejjang.easycovid19.model.dto.MemberDTO">
 		select * from member
-		where userId=#{userId}
+		where userId = #{userId}
 	</select>
 	
+	<!-- 회원정보 수정 -->
+	<update id="update">
+		update member
+		set userPw = #{userPw}, name=#{name}, email=#{email}
+		where userId=#{userId}
+	</update>
+	
+	<!-- 회원정보 삭제 -->
+	<delete id="delete">
+		delete from member
+		where userId=#{userId}
+	</delete>
+	
+	<!-- 비밀번호 체크 -->
+	<select id="checkPassword" resultType="int">
+		select count(*) from member
+		where userId = #{userId} and userPw = #{userPw}
+	</select>
 </mapper>
 

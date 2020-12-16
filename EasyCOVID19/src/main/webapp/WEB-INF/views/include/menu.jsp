@@ -10,4 +10,10 @@
 <a href="login.do">비동기식 호출2</a> 
 <a href="ajax_gugu.do">구구단(ajax)</a>
 <a href="/member/list.do">회원관리</a>
+
 <hr>
+
+<div style="text-align:right;">
+	<a href="/member/login.do">로그인</a>
+	<a href="/member/logout.do">로그아웃</a>
+</div>

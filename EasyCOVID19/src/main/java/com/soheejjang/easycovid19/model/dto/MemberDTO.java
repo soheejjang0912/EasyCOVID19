@@ -7,7 +7,7 @@ public class MemberDTO {
 	private String userPw;
 	private String name;
 	private String email;
-	private Date join_date;
+	private Date joinDate;
 	public String getUserId() {
 		return userId;
 	}
@@ -32,11 +32,11 @@ public class MemberDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getJoin_date() {
-		return join_date;
+	public Date getJoinDate() {
+		return joinDate;
 	}
-	public void setJoin_date(Date join_date) {
-		this.join_date = join_date;
+	public void setJoinDate(Date joinDate) {
+		this.joinDate = joinDate;
 	}
 
 }

@@ -48,7 +48,7 @@
 			</tr>
 			<tr>
 				<td>회원가입일자</td> 
-				<td><fmt:formatDate value="${row.join_date}" 
+				<td><fmt:formatDate value="${dto.joinDate}" 
 						pattern="yyyy-MM-dd HH:mm:ss"/></td>
 			</tr>
 			<tr>
