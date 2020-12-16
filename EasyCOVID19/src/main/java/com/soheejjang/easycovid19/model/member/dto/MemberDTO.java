@@ -1,4 +1,4 @@
-package com.soheejjang.easycovid19.model.dto;
+package com.soheejjang.easycovid19.model.member.dto;
 
 import java.util.Date;
 

@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
     
 	<head>
       <!-- basic -->
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <!-- mobile metas -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Covido</title>
+      <title>EasyCOVID19</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -61,12 +64,26 @@
                               <li><a class="active" href="index.jsp">Home</a></li>
                               <li><a href="about.jsp">About</a></li>
                               <li><a href="action.jsp">take action</a></li>
-                              <li><a href="index.jsp" class="logo_midle">covido</a></li>
+                              <li><a href="index.jsp" class="logo_midle">COVID19</a></li>
                               <li><a href="news.jsp">news</a></li>
-                              <li><a href="doctores.jsp">doctores</a></li>
-                               
+                              <li><a href="board.do">게시판</a></li>
+                              
+                              <!-- sessionScope.userId
+                              		는 자바의 
+                              	   session.getAttribute("userId")  -->
+                              <c:if test="${sessionScope.userId != null}"> 
+                              <h3>
+                              	${sessionScope.name} 님
+                              	<!-- (${sessionScope.userId}) -->
+                              </h3>
+                              </c:if>
+                              
+                              <c:if test="${sessionScope.userId == null}"> 
                               <li><a href="login.do">LOGIN</a></li>
                               <li><a href="join.do">JOIN</a></li>
+                              </c:if>
+                              
+                              
                            </ul>
                            <button class="nav-toggler">
                            <span></span>
