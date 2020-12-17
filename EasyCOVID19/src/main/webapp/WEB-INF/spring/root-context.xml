@@ -24,7 +24,7 @@ value="jdbc:mysql://localhost/easycovid19?serverTimezone=Asia/Seoul" />
         <property name="configLocation"
             value="classpath:/mybatis-config.xml" />
         <property name="mapperLocations"
-            value="classpath:mappers/**/*.xml" />
+            value="classpath:/mappers/**/*.xml" />
     </bean>
     
     <!-- SqlSession 객체 주입 -->
