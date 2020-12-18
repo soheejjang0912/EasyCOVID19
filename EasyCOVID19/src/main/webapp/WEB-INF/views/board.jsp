@@ -11,9 +11,13 @@
 $(function(){
 	$("#btnWrite").click(function(){
 		location.href="write.do";
-	})
-		
-})
+	});
+});
+function list(page){
+	loction.href='list.do?curPage='+page
+		+"&searchOption=${map.searchOption}"
+		+"&keyword=${map.keyword}";
+};
 </script> 
       <!-- board -->
       <div class="doctor">
@@ -28,8 +32,8 @@ $(function(){
              
                         
             <button type="button" class="send_btn" id="btnWrite">글쓰기</button>
-            
-            <c:forEach var="row" items="${map.list}">
+            ${map.count}개의 게시물이 있습니다.
+            <c:forEach var="row" items="${map.list}"> 
 	            <div class="row d_flex">
 	               <div class=" col-md-12">
 		               <div id="ho_efcet" class="reader text_align_center">
@@ -46,6 +50,14 @@ $(function(){
 	           	</div>
            	</c:forEach> 
            	
+           	<!-- 페이지 네비게이션 -->
+          		<tr>
+          			<td colspan="5" align="center">
+          				<c:forEach var="num" begin="1" end="${map.pager.totPage}">
+          					<a href="javascript:list('${num}')">${num}</a>
+        				</c:forEach>
+        			</td>
+        		</tr>
          </div>
       </div> 
       

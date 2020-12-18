@@ -3,6 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
+
 	 <select id="listAll"
 	 	resultType="com.soheejjang.easycovid19.model.board.dto.BoardDTO">
 	 	
@@ -13,9 +14,50 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 	
 	 </select>
 	 
+<!-- 
+	 <select id="listAll" resultType="com.soheejjang.easycovid19.model.board.dto.BoardDTO">
+	 	
+	 	<include refid="pagingHeader"/>
+	 	select bno, title, writer, name, content, regdate, viewCnt
+	 	from board b, member m
+	 	<include refid="search" />
+	 	order by bno desc
+	 	<include refid="pagingFooter"/>  
+	 	
+	 </select>
+	 
+	 <sql id = "search">
+	 	<choose>
+	 		<when test="searchOption == 'all' ">
+	 			where b.writer = m.userId
+	 				and (
+	 				name like '%${keyword}%' 
+	 				or content like '%${keyword}%' 
+	 				or title like '%${keyword}%'  
+	 				)
+	 		</when>
+	 		<otherwise>
+	 			where b.writer=m.userid
+	 		</otherwise>
+	 	</choose>
+	 </sql>
+	 
+	 <sql id="pagingHeader">
+	 	select *
+	 	from(
+	 		select rownum as rn, A.*
+	 		from( 
+	 </sql>
+	 
+	 <sql id="pagingFooter">
+	 		)A
+	 	) where rn between #{start} and #{end}
+	 </sql>
+ -->	 
 	 <insert id="insert">
 	 	insert into board (title, content, writer) 
 	 	values (#{title}, #{content}, #{writer})
 	 </insert>
+	 
 </mapper>
 

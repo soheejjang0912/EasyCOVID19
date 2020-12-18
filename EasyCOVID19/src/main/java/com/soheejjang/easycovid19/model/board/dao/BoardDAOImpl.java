@@ -1,6 +1,8 @@
 package com.soheejjang.easycovid19.model.board.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -63,8 +65,14 @@ public class BoardDAOImpl implements BoardDAO {
 	
 	//게시물 목록
 	@Override
-	public List<BoardDTO> listAll(int start, int end, String searchOption, String keyword) throws Exception {
-		// TODO Auto-generated method stub
+	public List<BoardDTO> listAll(int start, int end, 
+			String searchOption, String keyword) throws Exception {
+		Map<String,Object> map = new HashMap<String, Object>(); 
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword); 
+		map.put("start", start);
+		map.put("end", start); 
+		
 		return sqlSession.selectList("board.listAll");
 	}
 
