@@ -14,8 +14,7 @@ $(function(){
 	})
 		
 })
-</script>
-      <!-- end header -->
+</script> 
       <!-- board -->
       <div class="doctor">
          <div class="container"> 

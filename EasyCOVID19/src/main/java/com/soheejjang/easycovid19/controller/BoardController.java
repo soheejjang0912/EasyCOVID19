@@ -48,6 +48,6 @@ public class BoardController {
 		//레코드가 저장됨
 		boardService.create(dto);
 		//목록갱신
-		return "redirect:/list.do";
+		return "redirect:/board.do";
 	}
 }
