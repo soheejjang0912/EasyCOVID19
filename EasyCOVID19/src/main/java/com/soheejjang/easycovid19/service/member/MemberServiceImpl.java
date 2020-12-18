@@ -5,8 +5,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
-import com.soheejjang.easycovid19.model.member.dao.MemberDAO;
-import com.soheejjang.easycovid19.model.member.dto.MemberDTO;
+import com.soheejjang.easycovid19.model.dao.MemberDAO;
+import com.soheejjang.easycovid19.model.dto.MemberDTO;
 
 @Service // dao 호출위해
 public class MemberServiceImpl implements MemberService {

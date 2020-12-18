@@ -1,4 +1,4 @@
-package com.soheejjang.easycovid19.model.member.dao;
+package com.soheejjang.easycovid19.model.dao;
 
  
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.soheejjang.easycovid19.model.member.dto.MemberDTO;
+import com.soheejjang.easycovid19.model.dto.MemberDTO;
 
 @Repository //잊지않기!
 public class MemberDAOImpl implements MemberDAO {

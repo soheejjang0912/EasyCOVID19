@@ -1,4 +1,4 @@
-package com.soheejjang.easycovid19.model.member.dto;
+package com.soheejjang.easycovid19.model.dto;
 
 public class PointDTO {
 	private String name;

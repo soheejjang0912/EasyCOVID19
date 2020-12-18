@@ -1,3 +1,4 @@
+
 package com.soheejjang.easycovid19.controller;
 
  
@@ -15,8 +16,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.soheejjang.easycovid19.model.member.dao.MemberDAO;
-import com.soheejjang.easycovid19.model.member.dto.MemberDTO;
+import com.soheejjang.easycovid19.model.dao.MemberDAO;
+import com.soheejjang.easycovid19.model.dto.MemberDTO;
 import com.soheejjang.easycovid19.service.member.MemberService;
 
 @Controller //현재클래스가 스프링에서 관리하는 컨트롤러라고 등록한 것 
@@ -31,18 +32,17 @@ public class MemberController {
 	@Inject
 	MemberDAO memberDao;
 	
-	@RequestMapping("board.do")
-	public String board(Model model) { 
-		return "doctores";
-	}
+	/*
+	 * @RequestMapping("/board.do") public String board(Model model) { return
+	 * "doctores"; }
+	 */
 	
-	//회원 등록폼으로 이동
-	@RequestMapping("login.do")
+	@RequestMapping("/login.do")
 	public String write() {
 		return "login";
 	}
 	
-	@RequestMapping("loginCheck.do")
+	@RequestMapping("/loginCheck.do")
 	public ModelAndView loginCheck(@ModelAttribute MemberDTO dto,
 			HttpSession session) {
 		//로그인 성공 => 이름이 넘어옴, 실패=> null이 넘어옴
@@ -56,18 +56,17 @@ public class MemberController {
 			mav.setViewName("login"); 
 		}
 		return mav;
-	}
+	} 
 	
-	
-	@RequestMapping("join.do")
+	@RequestMapping("/join.do")
 	public String join() {
 		return "join";
-	}
+	} 
 	
-	@RequestMapping("joinAction.do")
+	@RequestMapping("/joinAction.do")
 	public String joinAction(@ModelAttribute MemberDTO dto) {
 		memberDao.joinAction(dto);
 		return "redirect:/login.do";
 	}
 	
-}
+} 

@@ -1,8 +1,8 @@
-package com.soheejjang.easycovid19.model.member.dao;
+package com.soheejjang.easycovid19.model.dao;
 
 import java.util.List;
 
-import com.soheejjang.easycovid19.model.member.dto.MemberDTO;
+import com.soheejjang.easycovid19.model.dto.MemberDTO;
 
 public interface MemberDAO {
 	public List<MemberDTO> list();
