@@ -31,17 +31,30 @@ public class BoardController {
 	}
  
 	@RequestMapping("/board.do") // 세부적인 mapping
-	public ModelAndView list(			//defulatValue안하면 null때문에 400에러 날 수도있따. 
+	public ModelAndView list(	//defulatValue안하면 null때문에 400에러 날 수도있따. 
 			@RequestParam(defaultValue = "1") int curPage, // 원하는 페이지 (시작은 기본 1) 
 			@RequestParam(defaultValue = "all") String searchOption,
-			@RequestParam(defaultValue = "") String keyword 
-			) throws Exception{
-		int count = 1000; // 레코드 갯수
-		Pager pager = new Pager(count, curPage);
-		int start=pager.getPageBegin();
-		int end=pager.getPageEnd();
+			@RequestParam(defaultValue = "") String keyword ) throws Exception{
 		
-		List<BoardDTO> list = boardService.listAll(start, end, searchOption, keyword); //목록
+		int count = boardService.countArticle(searchOption, keyword); // 레코드 갯수
+		
+		//페이지 나누기 처리
+		Pager pager = new Pager(count, curPage); 
+		System.out.println(curPage);
+		
+		int start= pager.getPageBegin(); //시작번호
+		int end= pager.getPageEnd();		//끝번호
+		
+		
+		System.out.println("--start----------------"+ start);
+		System.out.println("---end---------------"+ end);
+		
+		List<BoardDTO> list = boardService.listAll(
+				start, end, searchOption, keyword); //목록
+		
+
+		System.out.println("-list-----------------"+ list);
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board");// 이동할 페이지 지정
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -52,6 +65,7 @@ public class BoardController {
 		map.put("count", count);
 		
 		mav.addObject("map", map); // 데이터 저장
+		System.out.println("--map----------------"+ map);
 		return mav; // 페이지 이동(출력) 
 	}  
 	

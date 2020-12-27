@@ -2,10 +2,10 @@ package com.soheejjang.easycovid19.service.board;
 
 public class Pager {
 	//페이지당 게시물 수 
-	public static final int PAGE_SCALE=10;
+	public static final int PAGE_SCALE=2;
 	
 	//화면당 페이지 수
-	public static final int BLOCK_SCALE=10;
+	public static final int BLOCK_SCALE=5;
 	
 	private int curPage; //현재 페이지
 	private int prevPage; //이전 페이지
@@ -27,7 +27,7 @@ public class Pager {
 	//Pager		(레코드 갯수, 현재 페이지 번호)
 	public Pager(int count, int curPage) {
 		curBlock=1; //현재 페이지 블록번호
-		this.curBlock = curPage; //현재 페이지 설정
+		this.curPage = curPage; //현재 페이지 설정
 		setTotPage(count); //전체 페이지 갯수 계산 
 		// between #{start} and #{end}에 입력될 값 계산
 		setPageRange();
@@ -46,12 +46,10 @@ public class Pager {
 		//[이전]을 눌렀을 때 이동할 페이지 번호
 		prevPage=(curBlock==1)?1:(curBlock-1)*BLOCK_SCALE;
 		//[다음]을 눌렀을 때 이동할 페이지 번호
-		nextPage=curBlock>totBlock ?
-				(curBlock*BLOCK_SCALE) : (curBlock*BLOCK_SCALE)+1;
+		nextPage=curBlock>totBlock ? (curBlock*BLOCK_SCALE) : (curBlock*BLOCK_SCALE)+1;
 		//마지막 페이지가 범위를 초과하지 않도록 처리
 		if (nextPage >= totPage) nextPage=totPage;  
-	}
-	
+	} 
 	public void setPageRange() {
 		//where  rn between #{start} and #{end} 에 입력될 값
 		//시작번호 = (현재페이지 -1) * 페이지당 게시물수 + 1;

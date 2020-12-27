@@ -3,27 +3,66 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
-
+<!-- 
 	 <select id="listAll"
 	 	resultType="com.soheejjang.easycovid19.model.board.dto.BoardDTO">
 	 	
-	 	select bno, title, writer, name, content, regdate, viewCnt
+ 	 	select bno, title, writer, name, content, regdate
 	 	from board b, member m
 	 	where b.writer = m.userId
 	 	order by bno desc
 	 	
 	 </select>
-	 
-<!-- 
-	 <select id="listAll" resultType="com.soheejjang.easycovid19.model.board.dto.BoardDTO">
+	  -->
+  
+  	<select id="listAll"
+	 	resultType="com.soheejjang.easycovid19.model.board.dto.BoardDTO">
 	 	
+ 	 	 
+		  select * 
+			from(
+			 select @rownum1:=@rownum1+1 as rn, A.*
+			 from(
+			
+			
+			  select @rownum:=@rownum+1, bno, title, writer, name, content, regdate
+			  from board b, member m
+			  where b.writer=m.userId and (@rownum:=0)=0
+			  order by bno desc
+			
+			
+			 )A
+			 where  (@rownum1:=0)=0
+			)B
+			where rn between 1 and 2;
+
+
+	 	
+	 </select>
+	 
+	<!--  <select id="listAll" resultType="com.soheejjang.easycovid19.model.board.dto.BoardDTO">
+ 
 	 	<include refid="pagingHeader"/>
-	 	select bno, title, writer, name, content, regdate, viewCnt
-	 	from board b, member m
+ 
+		select @rownum:=@rownum+1, bno, title, regdate, viewCnt, name
+		from board b, member m
+		where b.writer=m.userId and (@rownum:=0)=0 
+		 
 	 	<include refid="search" />
 	 	order by bno desc
-	 	<include refid="pagingFooter"/>  
-	 	
+	  	
+	  	 		)A
+	  	 		where  (@rownum1:=0)=0
+	 		)B where rn between #{start} and #{end}
+	 
+	 	<include refid="pagingFooter" />   
+ 
+	 </select> -->
+	 
+	 <select id="countArticle" resultType="int">
+	 	select count(*)
+	 	from board b, member m
+	 	<include refid="search" />
 	 </select>
 	 
 	 <sql id = "search">
@@ -45,15 +84,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 <sql id="pagingHeader">
 	 	select *
 	 	from(
-	 		select rownum as rn, A.*
+	 		select @rownum1:=@rownum1+1 as rn, A.* 
 	 		from( 
 	 </sql>
 	 
-	 <sql id="pagingFooter">
-	 		)A
-	 	) where rn between #{start} and #{end}
+	 <sql id="pagingFooter"> 
+	 		)A 
+	 	where  (@rownum1:=0)=0
+	 )B where rn between #{start} and #{end}
 	 </sql>
- -->	 
+ 	 
 	 <insert id="insert">
 	 	insert into board (title, content, writer) 
 	 	values (#{title}, #{content}, #{writer})

@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="update">
 		update member
 		set userPw = #{userPw}, name=#{name}, email=#{email}
-		where userId=#{userId}
+		where userId = #{userId}
 	</update>
 	
 	<!-- 회원정보 삭제 -->

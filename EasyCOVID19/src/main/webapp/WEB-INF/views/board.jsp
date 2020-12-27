@@ -14,9 +14,9 @@ $(function(){
 	});
 });
 function list(page){
-	loction.href='list.do?curPage='+page
-		+"&searchOption=${map.searchOption}"
-		+"&keyword=${map.keyword}";
+	location.href='board.do?curPage='+page;
+		/* +"&searchOption=${map.searchOption}"
+		+"&keyword=${map.keyword}"; */
 };
 </script> 
       <!-- board -->
@@ -33,6 +33,14 @@ function list(page){
                         
             <button type="button" class="send_btn" id="btnWrite">글쓰기</button>
             ${map.count}개의 게시물이 있습니다.
+            
+			
+			
+		                  <h3>${map.pager.curBlock}</h3>
+		                  <h3>${map.list}</h3>
+		                  <h3>${map}</h3>
+		                  
+			
             <c:forEach var="row" items="${map.list}"> 
 	            <div class="row d_flex">
 	               <div class=" col-md-12">
@@ -51,13 +59,40 @@ function list(page){
            	</c:forEach> 
            	
            	<!-- 페이지 네비게이션 -->
-          		<tr>
-          			<td colspan="5" align="center">
-          				<c:forEach var="num" begin="1" end="${map.pager.totPage}">
-          					<a href="javascript:list('${num}')">${num}</a>
-        				</c:forEach>
-        			</td>
-        		</tr>
+       		<tr>
+       			<td colspan="5" align="center">
+       				<c:if test="${map.pager.curBlock > 1}">
+       					<a href="javascript:list(1)">[처음]</a> 
+       				</c:if>
+       				
+       				<c:if test="${map.pager.curBlock > 1}">
+       					<a href="javascript:list('${map.pager.prevPage}')">[이전]</a> 
+       				</c:if>
+       				
+       				<c:forEach var="num" begin="${map.pager.blockBegin}" 
+       						end="${map.pager.blockEnd}"> 
+       					<c:choose>
+       						<c:when test="${num == map.pager.curPage}">
+       							<span style="color:red;">${num}</span>&nbsp;
+       						</c:when>
+       						<c:otherwise>
+       							<a href="javascript:list(${num})">${num}</a>&nbsp;
+       						</c:otherwise>
+       					</c:choose> 
+     				</c:forEach>
+     				
+     				<c:if test="${map.pager.curBlock <= map.pager.totBlock}">
+       					<a href="javascript:list(${map.pager.nextPage})">[다음]</a> 
+       				</c:if>
+       				
+       				<c:if test="${map.pager.curPage <= map.pager.totPage}">
+       					<a href="javascript:list(${map.pager.totPage})">[끝]</a> 
+       				</c:if>
+       				<%-- <c:forEach var="num" begin="1" end="${map.pager.totPage}"> 
+       					<a href="javascript:list('${num}')">${num}</a> 
+     				</c:forEach> --%>
+     			</td>
+     		</tr>
          </div>
       </div> 
       
