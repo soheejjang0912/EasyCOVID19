@@ -42,12 +42,12 @@ public class BoardController {
 		Pager pager = new Pager(count, curPage); 
 		System.out.println(curPage);
 		
-		int start= pager.getPageBegin(); //시작번호
-		int end= pager.getPageEnd();		//끝번호
+		int start= pager.getPageBegin()-1; //시작번호
+		int end= pager.getPageEnd();		//끝번호 
 		
 		
 		System.out.println("--start----------------"+ start);
-		System.out.println("---end---------------"+ end);
+		System.out.println("---end---------------"+ end); 
 		
 		List<BoardDTO> list = boardService.listAll(
 				start, end, searchOption, keyword); //목록

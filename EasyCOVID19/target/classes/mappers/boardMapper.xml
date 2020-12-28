@@ -19,25 +19,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 	resultType="com.soheejjang.easycovid19.model.board.dto.BoardDTO">
 	 	
  	 	 
-		  select * 
-			from(
-			 select @rownum1:=@rownum1+1 as rn, A.*
-			 from(
-			
-			
-			  select @rownum:=@rownum+1, bno, title, writer, name, content, regdate
+			select R.* from(
+			  select bno, title, regdate, viewCnt, name
 			  from board b, member m
-			  where b.writer=m.userId and (@rownum:=0)=0
+			  where b.writer=m.userId  
 			  order by bno desc
-			
-			
-			 )A
-			 where  (@rownum1:=0)=0
-			)B
-			where rn between 1 and 2;
-
-
-	 	
+			)R 
+			limit 2 offset #{start, jdbcType=INTEGER}
+			<!-- 
+			LIMIT #{end, jdbcType=INTEGER} OFFSET #{start, jdbcType=INTEGER}  -->
+ 
 	 </select>
 	 
 	<!--  <select id="listAll" resultType="com.soheejjang.easycovid19.model.board.dto.BoardDTO">
