@@ -11,6 +11,5 @@ public class MainController {
 	@RequestMapping("/")
 	public String main(Model model) { 
 		return "index"; //main.jsp -> servlet-context.xml에서 접미사, 접두사 설정을 했기 때문에 main만 쳐도 이동 가능
-	}  
-	
+	}   
 }

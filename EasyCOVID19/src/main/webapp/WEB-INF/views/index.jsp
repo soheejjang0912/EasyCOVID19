@@ -13,8 +13,7 @@
             <div id="banner1" class="carousel slide slider_main">
                <ol class="carousel-indicators ">
                   <li data-target="#banner1" data-slide-to="0" class="indicator-li-1">01</li>
-                  <li data-target="#banner1" data-slide-to="1" class="">02</li>
-                  <li data-target="#banner1" data-slide-to="2" class="active">03</li>
+                  <li data-target="#banner1" data-slide-to="1" class="">02</li> 
                </ol>
                <div class="carousel-inner">
                   <!-- first slide -->
@@ -48,23 +47,7 @@
                            </div>
                         </div>
                      </div>
-                  </div>
-                  <!-- third slide -->
-                  <div class="carousel-item">
-                     <div class="carousel-caption cuplle">
-                        <div class="container">
-                           <div class="row">
-                              <div class="col-md-8">
-                                <div class="photog">
-                                    <h1>Care early<br>Coronavirus</h1>
-                                    <a class="read_more" href="javascript:void(0)" >Read More</a>
-                                    <a class="read_more" href="about.html" >About Us</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+                  </div>  
                </div>
                <!-- controls -->
                <a class="carousel-control-prev" href="#banner1" role="button" data-slide="prev">
@@ -86,9 +69,9 @@
                    <div class="col-md-7">
                   <div class="titlepage text_align_left">
                      <h2>About Corona Virus </h2>
-                     <p>English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for
-                     </p>
-                     <a class="read_more" href="about.html">About More</a>
+                     <p>2019년 12월 중국 우한에서 처음 발생한 이후 중국 전역과 전 세계로 확산된, 새로운 유형의 코로나바이러스(SARS-CoV-2)에 의한 호흡기 감염질환이다. 코로나바이러스감염증-19는 감염자의 비말(침방울)이 호흡기나 눈·코·입의 점막으로 침투될 때 전염된다. 감염되면 약 2~14일(추정)의 잠복기를 거친 뒤 발열(37.5도) 및 기침이나 호흡곤란 등 호흡기 증상, 폐렴이 주증상으로 나타나지만 무증상 감염 사례 빈도도 높게 나오고 있다.
+					 </p>
+                     <a class="read_more" href="aboutCovid.do">About More</a>
                   </div>
                </div>
                <div class="col-md-5">
