@@ -65,7 +65,7 @@
                               <li><a href="aboutCovid.do">About</a></li>
                               <li><a href="action.jsp">take action</a></li>
                               <li><a href="/easycovid19" class="logo_midle">COVID19</a></li>
-                              <li><a href="news.jsp">news</a></li>
+                              <li><a href="/news.do">news</a></li>
                               <li><a href="board.do">게시판</a></li>
                               
                               <!-- sessionScope.userId

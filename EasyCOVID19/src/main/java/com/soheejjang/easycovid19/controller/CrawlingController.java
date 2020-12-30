@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,27 +26,28 @@ public class CrawlingController {
         model.addAttribute("update", elem2);
 
 		 
-        return "aboutCovid"; //main.jsp -> servlet-context.xml에서 접미사,접두사 설정을 했기 때문에 main만 쳐도 이동 가능 
+        return "aboutCovid";  
 	}
 	
-	@RequestMapping("/aboutCovid.do") public String main2(Model model) throws IOException {
+	
+	
+	@RequestMapping("/news.do") public String news(Model model) throws IOException {
 		  
-        String URL = "http://ncov.mohw.go.kr/baroView.do";
+		String URL = "https://search.naver.com/search.naver?sm=tab_hty.top&where=news&query=%EC%BD%94%EB%A1%9C%EB%82%98+%EB%89%B4%EC%8A%A4&oquery=%EC%BD%94%EB%A1%9C%EB%82%98+%EB%89%B4%EC%8A%A4&tqi=U%2BYBLwp0YihssfNaKUGssssss68-387464";
         Document doc = Jsoup.connect(URL).get();
         
-        Elements elem = doc.select("div.data_table");
+        Elements elem = doc.select("div.group_news");
         String[] str = elem.text().split(" ");
         Elements elem2=doc.select("div.content div p.ta_r.mgt36");
+          
+        System.out.println(elem);
         
-		/* System.out.println(doc); */
-        System.out.println("elem==============================" + elem); 
-        System.out.println("elem222==============================" +elem2);
-        
-        model.addAttribute("name", elem);
-        model.addAttribute("message", elem2);
+        model.addAttribute("about", elem);
+        model.addAttribute("update", elem2);
 
 		 
-        return "aboutCovid"; //main.jsp -> servlet-context.xml에서 접미사,접두사 설정을 했기 때문에 main만 쳐도 이동 가능 
+        return "news";  
 	}
+	
 	 
 }
