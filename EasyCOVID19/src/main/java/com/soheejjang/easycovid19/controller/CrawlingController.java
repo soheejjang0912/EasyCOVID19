@@ -12,6 +12,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller 
 public class CrawlingController {  
 	
+	@RequestMapping("/aboutCovid.do") public String aboutCovid(Model model) throws IOException {
+		  
+        String URL = "http://ncov.mohw.go.kr/baroView.do";
+        Document doc = Jsoup.connect(URL).get();
+        
+        Elements elem = doc.select("div.data_table");
+        String[] str = elem.text().split(" ");
+        Elements elem2=doc.select("div.content div p.ta_r.mgt36");
+          
+        model.addAttribute("about", elem);
+        model.addAttribute("update", elem2);
+
+		 
+        return "aboutCovid"; //main.jsp -> servlet-context.xml에서 접미사,접두사 설정을 했기 때문에 main만 쳐도 이동 가능 
+	}
+	
 	@RequestMapping("/aboutCovid.do") public String main2(Model model) throws IOException {
 		  
         String URL = "http://ncov.mohw.go.kr/baroView.do";
@@ -29,8 +45,7 @@ public class CrawlingController {
         model.addAttribute("message", elem2);
 
 		 
-	  return "aboutCovid"; //main.jsp -> servlet-context.xml에서 접미사,접두사 설정을 했기 때문에 main만 쳐도 이동 가능 
-		}
-	
+        return "aboutCovid"; //main.jsp -> servlet-context.xml에서 접미사,접두사 설정을 했기 때문에 main만 쳐도 이동 가능 
+	}
 	 
 }

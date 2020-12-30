@@ -12,8 +12,8 @@
                <div class="col-md-12">
                   <div class="titlepage text_align_left">
                      <h2>About Corona Virus </h2> 
-                     <p>${message} </p> 
-                     ${name}
+                     <p>${update}</p> 
+                     ${about}
                   </div>
                </div> 
             </div> &nbsp;
