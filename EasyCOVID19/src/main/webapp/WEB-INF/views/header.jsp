@@ -63,9 +63,9 @@
                            <ul>
                               <li><a class="active" href="/easycovid19">Home</a></li>
                               <li><a href="aboutCovid.do">About</a></li>
-                              <li><a href="action.jsp">take action</a></li>
+                              <li><a href="selfDiagnosis.do">자가진단</a></li>
                               <li><a href="/easycovid19" class="logo_midle">COVID19</a></li>
-                              <li><a href="/news.do">news</a></li>
+                              <li><a href="news.do">news</a></li>
                               <li><a href="board.do">게시판</a></li>
                               
                               <!-- sessionScope.userId

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="selfDiagnosis">
+  
+  	 <insert id="insert">
+	 	insert into SelfDiagnosis (fever, cough, soreThroat, bodyAche, etc, etcDetails) 
+	 	values (#{fever}, #{cough}, #{soreThroat}, #{bodyAche}, #{etc}, #{}, #{etcDetails})
+	 </insert>
+	 
+	 
+  	<select id="listAll"
+	 	resultType="com.soheejjang.easycovid19.model.selfDiagnosis.dto.SelfDiagnosisDTO">
+			select R.* from(
+			  select bno, title, regdate, viewCnt, name, content
+			  from board b, member m
+			  where b.writer=m.userId  
+			  order by bno desc
+			)R 
+			limit 2 offset #{start, jdbcType=INTEGER}
+			 
+	 </select> 
+	 
+	 <select id="countArticle" resultType="int">
+	 	select count(*)
+	 	from board b, member m
+	 	<include refid="search" />
+	 </select>
+	 
+	 <sql id = "search">
+	 	<choose>
+	 		<when test="searchOption == 'all' ">
+	 			where b.writer = m.userId
+	 				and (
+	 				name like '%${keyword}%' 
+	 				or content like '%${keyword}%' 
+	 				or title like '%${keyword}%'  
+	 				)
+	 		</when>
+	 		<otherwise>
+	 			where b.writer=m.userid
+	 		</otherwise>
+	 	</choose>
+	 </sql>
+	 
+	 <sql id="pagingHeader">
+	 	select *
+	 	from(
+	 		select @rownum1:=@rownum1+1 as rn, A.* 
+	 		from( 
+	 </sql>
+	 
+	 <sql id="pagingFooter"> 
+	 		)A 
+	 	where  (@rownum1:=0)=0
+	 )B where rn between #{start} and #{end}
+	 </sql>
+ 	 
+
+	 
+</mapper>
+
