@@ -10,9 +10,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			select R.* from(
 			  select *
 			  from selfDiagnosis
-			  order by bno desc
+			  where order by bno desc
 			)R 
-			limit 2 offset #{start, jdbcType=INTEGER} 
+			limit 2 offset #{start, jdbcType=INTEGER}
+		 
 	 </select>
 	
 </mapper>
