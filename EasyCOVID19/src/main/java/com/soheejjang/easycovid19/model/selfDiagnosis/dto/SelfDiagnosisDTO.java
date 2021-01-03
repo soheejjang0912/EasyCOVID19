@@ -3,7 +3,15 @@ package com.soheejjang.easycovid19.model.selfDiagnosis.dto;
 import java.util.Date;
 
 public class SelfDiagnosisDTO {
-	private int bno;
+	private int bno; 
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+
+	private String writer;
 	private String fever;
 	private String cough;
 	private String soreThroat;
@@ -62,9 +70,10 @@ public class SelfDiagnosisDTO {
 	
 	@Override
 	public String toString() {
-		return "selfDiagnosisDTO [bno=" + bno + ", fever=" + fever + ", cough=" + cough + ", soreThroat=" + soreThroat
-				+ ", bodyAche=" + bodyAche + ", etc=" + etc + ", etcDetails=" + etcDetails + ", regdate=" + regdate
-				+ "]";
-	} 
+		return "SelfDiagnosisDTO [bno=" + bno + ", writer=" + writer + ", fever=" + fever + ", cough=" + cough
+				+ ", soreThroat=" + soreThroat + ", bodyAche=" + bodyAche + ", etc=" + etc + ", etcDetails="
+				+ etcDetails + ", regdate=" + regdate + "]";
+	}
+	 
 	
 }

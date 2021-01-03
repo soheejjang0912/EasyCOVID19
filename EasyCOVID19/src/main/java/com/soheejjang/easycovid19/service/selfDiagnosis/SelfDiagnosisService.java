@@ -1,9 +1,12 @@
 package com.soheejjang.easycovid19.service.selfDiagnosis;
 
 import java.util.List;
-  
+
+import org.springframework.stereotype.Repository;
+
 import com.soheejjang.easycovid19.model.selfDiagnosis.dto.SelfDiagnosisDTO;
 
+ 
 public interface SelfDiagnosisService { 
 	
 	public void create(SelfDiagnosisDTO dto) throws Exception; //글 쓰기

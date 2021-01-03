@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.stereotype.Service;
+
 import com.soheejjang.easycovid19.model.selfDiagnosis.dao.SelfDiagnosisDAO;
 import com.soheejjang.easycovid19.model.selfDiagnosis.dto.SelfDiagnosisDTO;
 
+@Service // service bean
 public class SelfDiagnosisServiceImpl implements SelfDiagnosisService {
 
 	@Inject //dao의존관계 주입
@@ -38,7 +41,6 @@ public class SelfDiagnosisServiceImpl implements SelfDiagnosisService {
 
 	@Override
 	public List<SelfDiagnosisDTO> listAll(int start, int end) throws Exception {
-		// TODO Auto-generated method stub
 		return selfDiagnosisDao.listAll(start, end);
 	}
 

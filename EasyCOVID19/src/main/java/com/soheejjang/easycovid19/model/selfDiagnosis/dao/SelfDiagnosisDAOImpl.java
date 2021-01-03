@@ -1,6 +1,8 @@
 package com.soheejjang.easycovid19.model.selfDiagnosis.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -41,8 +43,10 @@ public class SelfDiagnosisDAOImpl implements SelfDiagnosisDAO {
 
 	@Override
 	public List<SelfDiagnosisDTO> listAll(int start, int end) throws Exception {
-		// TODO Auto-generated method stub
-		return sqlSession.selectList("selfDiagnosis.listAll");
+		Map<String,Object> map = new HashMap<String, Object>();  
+		map.put("start", start);
+		map.put("end", start); 
+		return sqlSession.selectList("selfDiagnosis.listAll", map);
 	}
 
 	@Override

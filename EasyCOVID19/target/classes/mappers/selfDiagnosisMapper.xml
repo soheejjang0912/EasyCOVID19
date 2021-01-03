@@ -6,14 +6,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   	<select id="listAll"
 	 	resultType="com.soheejjang.easycovid19.model.selfDiagnosis.dto.SelfDiagnosisDTO">
-	 	 
 			select R.* from(
 			  select *
 			  from selfDiagnosis
-			  where order by bno desc
+			  order by bno desc
+			  
 			)R 
-			limit 2 offset #{start, jdbcType=INTEGER}
-		 
+			limit 2 offset #{start, jdbcType=INTEGER} 
 	 </select>
 	
 </mapper>

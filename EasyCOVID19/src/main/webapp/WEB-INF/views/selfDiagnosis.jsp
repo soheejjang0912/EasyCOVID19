@@ -38,10 +38,9 @@ function list(page){
 	               <div class=" col-md-12">
 		               <div id="ho_efcet" class="reader text_align_center">
 		                  <%-- <i><img src="<%=request.getContextPath()%>/resources/images/doctor1.png" alt="#"/></i> --%>
-		                  <h3>${row.title}</h3>  
-		                  <h5 style="line-height:90px">${row.content}</h5>
-		                  <h5 style="line-height:20px">🧑 ${row.name} 님이 작성하신 글입니다.</h5>
-		                  <!--${row.bno}, ${row.writer}, ${row.regdate}, ${row.viewCnt}  -->
+		                  <h3>${row.bno}</h3>  
+		                  <h5 style="line-height:90px">${row.fever}</h5>
+		                  <h5 style="line-height:20px">🧑 ${row.cough} 님이 작성하신 글입니다.</h5> 
 		                  <h5 style="line-height:30px"><fmt:formatDate value="${row.regdate}" 
 		                  	pattern="yyyy-MM-dd HH:mm:ss"/></h5>
 		                  <span><img src="<%=request.getContextPath()%>/resources/images/do.png" alt="#"/></span>
