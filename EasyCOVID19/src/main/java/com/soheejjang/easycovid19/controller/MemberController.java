@@ -1,6 +1,4 @@
-
 package com.soheejjang.easycovid19.controller;
-
  
 import java.io.PrintWriter;
 import java.util.List; 
@@ -30,16 +28,18 @@ public class MemberController {
 	MemberService memberService;
 	
 	@Inject
-	MemberDAO memberDao;
-	
-	/*
-	 * @RequestMapping("/board.do") public String board(Model model) { return
-	 * "doctores"; }
-	 */
+	MemberDAO memberDao; 
 	
 	@RequestMapping("/login.do")
-	public String write() {
+	public String login() {
 		return "login";
+	}
+	
+	@RequestMapping("/logout.do")
+	public ModelAndView logout(HttpSession session, ModelAndView mav) {
+		memberService.logout(session); //세션 초기화 작업 -> session.invalidate(); 이렇게만 해도 괜찮음
+		mav.setViewName("index"); //이동할 페이지 
+		return mav; //페이지 이동
 	}
 	
 	@RequestMapping("/loginCheck.do")
