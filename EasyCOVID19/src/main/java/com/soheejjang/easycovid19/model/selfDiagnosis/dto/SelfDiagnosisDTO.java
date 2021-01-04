@@ -3,14 +3,7 @@ package com.soheejjang.easycovid19.model.selfDiagnosis.dto;
 import java.util.Date;
 
 public class SelfDiagnosisDTO {
-	private int bno; 
-	public String getWriter() {
-		return writer;
-	}
-	public void setWriter(String writer) {
-		this.writer = writer;
-	}
-
+	private int bno;  
 	private String writer;
 	private String fever;
 	private String cough;
@@ -19,11 +12,18 @@ public class SelfDiagnosisDTO {
 	private String etc;
 	private String etcDetails;  
 	private Date regdate;
+	
 	public int getBno() {
 		return bno;
 	}
 	public void setBno(int bno) {
 		this.bno = bno;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 	public String getFever() {
 		return fever;

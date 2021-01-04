@@ -23,7 +23,7 @@ $(function(){
                      <div class="titlepage text_align_left">
                         <h2>글 쓰기</h2>
                         <form id = "writeForm" name="writeForm" method="post"
-                        	action="insert.do">  
+                        	action="selfDiagnosisWriteinsert.do">  
                         	
                         	<div>
                         		<h4>1. 열(37.5도 이상)또는 발열감</h4>&nbsp;

@@ -9,10 +9,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			select R.* from(
 			  select *
 			  from selfDiagnosis
-			  order by bno desc
-			  
+			  where writer=#{writer}
+			  order by bno desc 
 			)R 
 			limit 2 offset #{start, jdbcType=INTEGER} 
+	 </select>
+	 
+	 <insert id="insert">
+	 	insert into selfDiagnosis (writer, fever, cough, soreThroat,bodyAche, etc, etcDetails, regdate) 
+	 	values (#{writer}, #{fever}, #{cough}, #{soreThroat}, #{bodyAche}, #{etc}, #{etcDetails}, now())
+	 </insert>
+	 
+	 
+	 <select id="countArticle" resultType="int">
+	 	select count(*)
+	 	from selfDiagnosis s, member m 
+	 	where s.writer = m.userId
 	 </select>
 	
 </mapper>

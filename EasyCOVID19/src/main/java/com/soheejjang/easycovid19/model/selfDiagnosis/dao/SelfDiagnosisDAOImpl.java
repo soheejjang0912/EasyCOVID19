@@ -18,9 +18,17 @@ public class SelfDiagnosisDAOImpl implements SelfDiagnosisDAO {
 	SqlSession sqlSession;
 	
 	@Override
+	public List<SelfDiagnosisDTO> listAll(int start, int end, String writer) throws Exception {
+		Map<String,Object> map = new HashMap<String, Object>();  
+		map.put("start", start);
+		map.put("end", end); 
+		map.put("writer", writer); 
+		return sqlSession.selectList("selfDiagnosis.listAll", map);
+	}
+	
+	@Override
 	public void create(SelfDiagnosisDTO dto) throws Exception {
-		// TODO Auto-generated method stub
-
+		sqlSession.insert("selfDiagnosis.insert", dto); 
 	}
 
 	@Override
@@ -41,13 +49,7 @@ public class SelfDiagnosisDAOImpl implements SelfDiagnosisDAO {
 
 	}
 
-	@Override
-	public List<SelfDiagnosisDTO> listAll(int start, int end) throws Exception {
-		Map<String,Object> map = new HashMap<String, Object>();  
-		map.put("start", start);
-		map.put("end", start); 
-		return sqlSession.selectList("selfDiagnosis.listAll", map);
-	}
+	
 
 	@Override
 	public int countArticle() throws Exception { 

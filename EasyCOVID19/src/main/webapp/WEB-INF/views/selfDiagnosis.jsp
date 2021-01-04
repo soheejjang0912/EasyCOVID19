@@ -24,7 +24,7 @@ function list(page){
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage text_align_center ">
-                     <h2>게시판</h2>
+                     <h2>자가진단</h2>
                   </div>
                </div>
             </div>  
@@ -36,14 +36,45 @@ function list(page){
             <c:forEach var="row" items="${map.list}"> 
 	            <div class="row d_flex">
 	               <div class=" col-md-12">
-		               <div id="ho_efcet" class="reader text_align_center">
-		                  <%-- <i><img src="<%=request.getContextPath()%>/resources/images/doctor1.png" alt="#"/></i> --%>
-		                  <h3>${row.bno}</h3>  
-		                  <h5 style="line-height:90px">${row.fever}</h5>
-		                  <h5 style="line-height:20px">🧑 ${row.cough} 님이 작성하신 글입니다.</h5> 
-		                  <h5 style="line-height:30px"><fmt:formatDate value="${row.regdate}" 
-		                  	pattern="yyyy-MM-dd HH:mm:ss"/></h5>
-		                  <span><img src="<%=request.getContextPath()%>/resources/images/do.png" alt="#"/></span>
+		               <div id="ho_efcet" class="reader text_align_center"> 
+		                  <div class="table-responsive">
+		                  	<table class="table">
+		                  		<thread>
+		                  			<tr>
+		                  				<th> 검사날짜 </th>
+		                  				<th> 열(37.5도 이상)또는 발열감 </th>
+		                  				<th> 기침 </th>
+		                  				<th> 인후통 </th>
+		                  				<th> 몸살 </th> 
+	                  				</tr>
+	                  			</thread>
+	                  			<tbody>
+	                  				<tr>
+	                  					<td><fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+	                  					<td>${row.fever}</td>
+	                  					<td>${row.cough}</td>
+	                  					<td>${row.soreThroat}</td> 
+	                  					<td>${row.bodyAche}</td> 
+	                  			</tbody>
+		                  	</table>
+		                  </div>
+		                  &nbsp; 
+		                  <div class="table-responsive">
+		                  	<table class="table">
+		                  		<thread>
+		                  			<tr> 
+		                  				<th> 기타(두통, 후각, 미각소실 등) </th>
+		                  				<th> 기타 상세내용 </th>
+	                  				</tr>
+	                  			</thread>
+	                  			<tbody>
+	                  				<tr> 
+	                  					<td>${row.etc}</td> 
+	                  					<td>${row.etcDetails}</td> 
+	                  			</tbody>
+		                  	</table>
+		                  </div>
+		                  
 		               </div>
 	               </div> 
 	           	</div>
