@@ -72,7 +72,7 @@
                               		는 자바의 
                               	   session.getAttribute("userId")  -->
                               <c:if test="${sessionScope.userId != null}"> 
-                              <li><a href="login.do">LOGOUT</a></li>
+                              <li><a href="logout.do">LOGOUT</a></li>
                               <h3>
                               	${sessionScope.name} 님
                               	<!-- (${sessionScope.userId}) -->
