@@ -32,18 +32,18 @@ public class SelfDiagnosisController {
 			@RequestParam(defaultValue = "") String keyword,
 			HttpSession session) throws Exception{
 
-		int count = selfDiagnosisService.countArticle(); // 레코드 갯수
-
+		String writer = (String)session.getAttribute("userId");
+		int count = selfDiagnosisService.countArticle(writer); // 레코드 갯수
+		
 		//페이지 나누기 처리
 		Pager pager = new Pager(count, curPage); 
 		System.out.println(curPage);
 
 		int start= pager.getPageBegin()-1; //시작번호
 		int end= pager.getPageEnd();		//끝번호 
-		String writer = (String)session.getAttribute("userId");
 
-		System.out.println("--start----------------"+ start);
-		System.out.println("---end---------------"+ end); 
+		System.out.println("--writer----------------"+ writer);
+		System.out.println("---count---------------"+ count); 
 
 		List<SelfDiagnosisDTO> list = selfDiagnosisService.listAll(start, end, writer); //목록
 

@@ -23,8 +23,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 
 	 <select id="countArticle" resultType="int">
 	 	select count(*)
-	 	from selfDiagnosis s, member m 
-	 	where s.writer = m.userId
+	 	from selfDiagnosis
+	 	where writer = #{writer}
 	 </select>
 	
 </mapper>

@@ -16,6 +16,6 @@ public interface SelfDiagnosisDAO {
 			throws Exception; 
 	
 	//레코드 갯수 계산
-	public int countArticle()
+	public int countArticle(String writer)
 		throws Exception;
 }

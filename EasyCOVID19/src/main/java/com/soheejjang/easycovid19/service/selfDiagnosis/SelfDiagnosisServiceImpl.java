@@ -42,8 +42,8 @@ public class SelfDiagnosisServiceImpl implements SelfDiagnosisService {
 	} 
 
 	@Override
-	public int countArticle() throws Exception { 
-		return 0;
+	public int countArticle(String writer) throws Exception { 
+		return selfDiagnosisDao.countArticle(writer);
 	}
 
 }

@@ -27,6 +27,11 @@ public class SelfDiagnosisDAOImpl implements SelfDiagnosisDAO {
 	}
 	
 	@Override
+	public int countArticle(String writer) throws Exception { 
+		return sqlSession.selectOne("selfDiagnosis.countArticle", writer);
+	}
+	
+	@Override
 	public void create(SelfDiagnosisDTO dto) throws Exception {
 		sqlSession.insert("selfDiagnosis.insert", dto); 
 	}
@@ -47,13 +52,6 @@ public class SelfDiagnosisDAOImpl implements SelfDiagnosisDAO {
 	public void delete(int bno) throws Exception {
 		// TODO Auto-generated method stub
 
-	}
-
-	
-
-	@Override
-	public int countArticle() throws Exception { 
-		return 0;
 	}
 
 }
