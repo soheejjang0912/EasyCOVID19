@@ -44,12 +44,12 @@
       <!-- top -->
                     <!-- header -->
          <header class="header-area">
-            <div class="left">
+            <!-- <div class="left">
                <a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a>
             </div>
             <div class="right">
                <a href="Javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a>
-            </div>
+            </div> -->
             <div class="container">
                <div class="row d_flex">
                   <div class="col-sm-3 logo_sm">
@@ -57,14 +57,15 @@
                         <a href="index.html"></a>
                      </div>
                   </div>
-                  <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-9">
+                  <div class="col-lg-12 offset-lg-1 col-md-12 col-sm-9">
                      <div class="navbar-area">
                         <nav class="site-navbar">
                            <ul>
-                              <li><a class="active" href="/easycovid19">Home</a></li>
+                              <!-- <li><a class="active" href="/easycovid19">Home</a></li> -->
+                              <li><a href="/easycovid19" class="logo_midle">COVID19 Home</a></li>
+                              <li><a href="aboutSite.do">AboutSite</a></li>
                               <li><a href="aboutCovid.do">About</a></li>
-                              <li><a href="/easycovid19" class="logo_midle">COVID19</a></li>
-                              <li><a href="news.do">news</a></li>
+                              <li><a href="news.do">NEWS</a></li>
                               <li><a href="board.do">BOARD</a></li>
                               
                               <!-- sessionScope.userId
