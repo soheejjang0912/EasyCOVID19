@@ -27,6 +27,8 @@
 				class="com.soheejjang.easycovid19.interceptor.LoginInterceptor"/>
 	<interceptors>
 		<interceptor>
+			<mapping path="/selfDiagnosis.do"/>
+			<mapping path="/selfDiagnosisWrite.do"/>
 			<mapping path="/write.do"/>
 			<mapping path="/insert.do"/>
 			<beans:ref bean="loginInterceptor"/>

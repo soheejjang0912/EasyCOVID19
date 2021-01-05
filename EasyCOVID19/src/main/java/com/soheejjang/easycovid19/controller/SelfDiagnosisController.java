@@ -30,9 +30,11 @@ public class SelfDiagnosisController {
 			@RequestParam(defaultValue = "1") int curPage, // 원하는 페이지 (시작은 기본 1) 
 			@RequestParam(defaultValue = "all") String searchOption,
 			@RequestParam(defaultValue = "") String keyword,
-			HttpSession session) throws Exception{
-
-		String writer = (String)session.getAttribute("userId");
+			HttpSession session) throws Exception{ 
+		
+		// /EasyCOVID19/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 로 가서 로그인 확인함
+		
+		String writer = (String)session.getAttribute("userId"); 
 		int count = selfDiagnosisService.countArticle(writer); // 레코드 갯수
 		
 		//페이지 나누기 처리
