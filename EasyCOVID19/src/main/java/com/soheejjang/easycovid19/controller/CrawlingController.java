@@ -13,7 +13,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller 
 public class CrawlingController {  
 	
+	
 	@RequestMapping("/aboutCovid.do") public String aboutCovid(Model model) throws IOException {
+		  
+        String URL = "http://ncov.mohw.go.kr/baroView.do";
+        Document doc = Jsoup.connect(URL).get();
+        
+        Elements elems = doc.select("table tbody tr");
+        System.out.println(elems);
+        
+        for(Element elem : elems) {
+        	 Elements tdElems = elem.select("td");
+        	 model.addAttribute("about", tdElems);
+        	 System.out.println(tdElems);
+        } 
+        
+        String[] str = elems.text().split(" ");
+        Elements elem2=doc.select("div.content div p.ta_r.mgt36");
+        
+        
+        //model.addAttribute("about", elems);
+        model.addAttribute("update", elem2);
+
+		 
+        return "aboutCovid";  
+	}
+	
+	
+	@RequestMapping("/aboutCovid2.do") public String aboutCovid2(Model model) throws IOException {
 		  
         String URL = "http://ncov.mohw.go.kr/baroView.do";
         Document doc = Jsoup.connect(URL).get();
