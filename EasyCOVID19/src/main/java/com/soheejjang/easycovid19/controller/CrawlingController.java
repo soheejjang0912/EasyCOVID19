@@ -1,6 +1,10 @@
 package com.soheejjang.easycovid19.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -8,35 +12,66 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping; 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView; 
 
 @Controller 
 public class CrawlingController {  
 	
 	
-	@RequestMapping("/aboutCovid.do") public String aboutCovid(Model model) throws IOException {
+	@RequestMapping("/aboutCovid.do") 
+	public ModelAndView aboutCovid(Model model) 
+			throws IOException {
 		  
         String URL = "http://ncov.mohw.go.kr/baroView.do";
         Document doc = Jsoup.connect(URL).get();
+        Elements e = doc.select("div.data_table table tbody tr");
+        Elements elems = doc.select("table tbody tr th");
+        Elements elemss = doc.select("table tbody tr td");
+        //System.out.println(elems);
+        //System.out.println(elemss);
+        ArrayList<Elements> listaa;
+        Elements b;
+        Element a; 
         
-        Elements elems = doc.select("table tbody tr");
-        System.out.println(elems);
+        List<Elements> listA = new ArrayList<Elements>();
+        List<Elements> listB = new ArrayList<Elements>();
         
-        for(Element elem : elems) {
-        	 Elements tdElems = elem.select("td");
-        	 model.addAttribute("about", tdElems);
-        	 System.out.println(tdElems);
-        } 
+        Map<String, Object>map = new HashMap<String, Object>();
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("aboutCovid");
+        for(Element test:e) {
+        	model.addAttribute("aa", test.selectFirst("th")); 
+        	model.addAttribute("bb", test.selectFirst("td")); 
+        	map.put("bb", test.selectFirst("td"));  
+        	
+        	mav.addObject("map", map);
+        }
+
+    	System.out.println("map==="+map);
         
-        String[] str = elems.text().split(" ");
-        Elements elem2=doc.select("div.content div p.ta_r.mgt36");
+//        for(Element el: elems) {
+//        	System.out.println("for================================="+el.text());
+//        	model.addAttribute("el", el);
+//        }
+//        for(Element el: elemss) {
+//        	System.out.println("for22================================="+el.text());
+//        }
+//        for(Element elem : elems) {
+//        	 Elements tdElems = elem.select("td");
+//        	 model.addAttribute("about", tdElems);
+//        	 System.out.println("for222================================="+tdElems.text());
+//        } 
         
-        
-        //model.addAttribute("about", elems);
-        model.addAttribute("update", elem2);
+//        String[] str = elems.text().split(" ");
+//        Elements elem2=doc.select("div.content div p.ta_r.mgt36");
+//        
+//        
+//        //model.addAttribute("about", elems);
+//        model.addAttribute("update", elem2);
 
 		 
-        return "aboutCovid";  
+        return mav;  
 	}
 	
 	

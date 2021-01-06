@@ -23,7 +23,8 @@
 	                     <figure><img src="<%=request.getContextPath()%>/resources/images/cases1.png" alt="#"/></figure> 
 	                     <div class="nostrud">
 	                        <h3>코로나바이러스감염증-19(COVID-19) 정보</h3>
-	                        <p>${about}</p> 
+	                        <p>${about}</p>  
+	                        <p>${map}</p>    
 	                     </div>
 	                  </div>
 	               </div> 
@@ -32,5 +33,6 @@
     	</div>
      </div>
       <!-- end contact -->
+      
       <!--  footer -->
 <jsp:include page="footer.jsp"/>    
