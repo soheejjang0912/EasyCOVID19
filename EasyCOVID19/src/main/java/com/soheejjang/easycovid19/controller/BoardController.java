@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;import com.soheejjang.easycovid19.model.board.dao.BoardDAO;
 import com.soheejjang.easycovid19.model.board.dto.BoardDTO;
@@ -93,4 +94,22 @@ public class BoardController {
 		//목록갱신
 		return "redirect:/board.do";
 	}
+	 
+	@RequestMapping(value="view.do", method=RequestMethod.GET)
+	public ModelAndView view(@RequestParam int bno, 
+			@RequestParam(defaultValue = "1") int curPage, // 원하는 페이지 (시작은 기본 1) 
+			@RequestParam(defaultValue = "all") String searchOption,
+			@RequestParam(defaultValue = "") String keyword,
+			HttpSession session)throws Exception{
+		boardService.increaseViewCnt(bno);
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("view");
+		mav.addObject("dto", boardService.read(bno));
+		mav.addObject("curPage", curPage);
+		mav.addObject("search_option", searchOption);
+		mav.addObject("keyword", keyword);  
+		return mav;
+	}
+	
+
 }

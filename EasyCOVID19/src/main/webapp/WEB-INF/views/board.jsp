@@ -38,7 +38,9 @@ function list(page){
 	               <div class=" col-md-12">
 		               <div id="ho_efcet" class="reader text_align_center">
 		                  <%-- <i><img src="<%=request.getContextPath()%>/resources/images/doctor1.png" alt="#"/></i> --%>
-		                  <h3>${row.title}</h3>  
+		                  <a href="view.do?bno=${row.bno}&curPage=${map.pager.curPage}&search_option=${map.search_option}&keyword=${map.keyword}">
+		                  <h3>${row.title}</h3> </a>
+		                  
 		                  <h5 style="line-height:90px">${row.content}</h5>
 		                  <h5 style="line-height:20px">🧑 ${row.name} 님이 작성하신 글입니다.</h5>
 		                  <!--${row.bno}, ${row.writer}, ${row.regdate}, ${row.viewCnt}  -->

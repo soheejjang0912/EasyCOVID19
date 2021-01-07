@@ -46,9 +46,8 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public BoardDTO read(int bno) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public BoardDTO read(int bno) throws Exception { 
+		return sqlSession.selectOne("board.view", bno);
 	}
 
 	@Override
@@ -78,8 +77,7 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public void increaseViewcnt(int bno) throws Exception {
-		// TODO Auto-generated method stub
-
+		sqlSession.update("board.increaseViewcnt", bno); 
 	}
 
 	@Override

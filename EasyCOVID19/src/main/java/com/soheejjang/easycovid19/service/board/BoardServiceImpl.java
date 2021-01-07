@@ -44,9 +44,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardDTO read(int bno) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public BoardDTO read(int bno) throws Exception { 
+		return boardDao.read(bno);
 	}
 
 	@Override
@@ -69,7 +68,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void increaseViewCnt(int bno) throws Exception {
-		// TODO Auto-generated method stub
+		boardDao.increaseViewcnt(bno);
 
 	}
 
