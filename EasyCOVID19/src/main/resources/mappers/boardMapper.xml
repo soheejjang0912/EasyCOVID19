@@ -17,8 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
   	<select id="listAll"
 	 	resultType="com.soheejjang.easycovid19.model.board.dto.BoardDTO">
-	 	
- 	 	 
+	 	 
 			select R.* from(
 			  select bno, title, regdate, viewCnt, name, content
 			  from board b, member m
@@ -26,8 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			  order by bno desc
 			)R 
 			limit 2 offset #{start, jdbcType=INTEGER}
-			<!-- 
-			LIMIT #{end, jdbcType=INTEGER} OFFSET #{start, jdbcType=INTEGER}  -->
+			<!-- LIMIT #{end, jdbcType=INTEGER} OFFSET #{start, jdbcType=INTEGER}  -->
  
 	 </select>
 	 

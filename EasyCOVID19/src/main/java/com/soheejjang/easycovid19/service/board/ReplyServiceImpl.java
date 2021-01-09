@@ -22,14 +22,12 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public List<ReplyDTO> list(Integer bno, int start, int end, HttpSession session) {
-		// TODO Auto-generated method stub
-		return null;
+		return replyDao.list(bno, start, end);
 	}
 
 	@Override
 	public int count(int bno) {
-		// TODO Auto-generated method stub
-		return 0;
+		return replyDao.count(bno);
 	}
 
 	@Override

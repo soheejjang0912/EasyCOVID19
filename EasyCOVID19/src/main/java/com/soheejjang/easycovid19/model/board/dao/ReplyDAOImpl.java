@@ -19,15 +19,17 @@ public class ReplyDAOImpl implements ReplyDAO {
 	SqlSession sqlSession; //myBatis도 직접 관리안하고 스프링이 관리!
 
 	@Override
-	public List<ReplyDTO> list(Integer bno, int start, int end) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ReplyDTO> list(Integer bno, int start, int end) { 
+		Map<String,Object> map=new HashMap<String, Object>();
+		map.put("start", start);
+		map.put("end", end);
+		map.put("bno", bno);
+		return sqlSession.selectList("reply.listReply", map);
 	}
 
 	@Override
 	public int count(int bno) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.selectOne("reply.count", bno);
 	}
 
 	@Override

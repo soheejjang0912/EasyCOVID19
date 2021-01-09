@@ -3,27 +3,35 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en"> 
-<jsp:include page="header.jsp"/> 
-
+<jsp:include page="header.jsp"/>  
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script> 
-$(function(){
-	$("#btnReply").click(function(){
+$(function(){ 
+	//listReply("1");
+	$("#btnReply").click(function(){ 
 		reply();
 	});
 }); 
-function reply(){
+function reply(){ 
 	var replytext=$("#replytext").val();
-	var bno="${dto.bno}";
-	//var replyer="${sessionScope.userId}"; 
-	var param={"replytext":replytext, "bno":bno}; 
-	alert(replyer);
+	var bno="${dto.bno}"; 
+	var param={"replytext":replytext, "bno":bno};
 	$.ajax({
 		type: "post",
-		url: "replyinsert.do",
+		url: "replyInsert.do",
 		data: param,
 		success: function(){ 
 			alert("댓글이 등록되었습니다.");
+			//listReply("1");
+		} 
+	});
+};
+function listReply(num){
+	$.ajax({
+		type: "post",
+		url: "replyList.do?bno=${dto.bno}&curPage="+num,
+		success: function(result){ 
+			$("#listReply").html(result);
 		}
 	});
 };
