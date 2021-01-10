@@ -24,6 +24,11 @@ function reply(){
 			alert("댓글이 등록되었습니다.");
 			//listReply("1");
 		} 
+		error: function(error){
+			alert("eee");
+			e.printStackTrace();
+			
+		}
 	});
 };
 function listReply(num){

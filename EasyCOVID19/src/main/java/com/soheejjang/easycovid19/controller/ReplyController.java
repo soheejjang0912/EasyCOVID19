@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller; 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.soheejjang.easycovid19.model.board.dto.ReplyDTO; 
@@ -20,6 +21,7 @@ public class ReplyController {
 	@Inject // 서비스 객체 주입
 	ReplyService replyService; 
 	
+	@ResponseBody
 	@RequestMapping("/replyInsert.do")  
 	public void insert(ReplyDTO dto, HttpSession session) {
 		String writer = (String)session.getAttribute("userId"); //("userid")로 했어서 값을 못불러왔었음... 확인 잘 할것!! 
@@ -29,6 +31,7 @@ public class ReplyController {
 		replyService.create(dto);
 		System.out.println("??????????????????"+dto);  
 	}
+	
 	
 	@RequestMapping("/replyList.do")
 	public ModelAndView list(int bno,
