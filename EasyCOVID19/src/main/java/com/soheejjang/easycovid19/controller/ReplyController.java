@@ -45,6 +45,7 @@ public class ReplyController {
 		int end=pager.getPageEnd();
 		List<ReplyDTO> list=
 			replyService.list(bno, start, end, session);
+		System.out.println(list);
 		mav.setViewName("replyList");
 		mav.addObject("list", list);
 		mav.addObject("pager", pager);

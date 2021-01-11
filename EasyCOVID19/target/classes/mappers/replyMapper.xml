@@ -7,8 +7,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	 <insert id="insertReply">
   	 	insert into reply
-  	 	(bno, replyer) values
-  	 	(#{bno},  #{replyer})
+  	 	(bno, replytext, replyer) values
+  	 	(#{bno}, #{replytext},  #{replyer})
   	 	<!-- 
   	 	insert into reply
   	 	(bno, replytext, replyer) values
@@ -17,13 +17,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	 
 	 <select id="listReply"
 	 resultType="com.soheejjang.easycovid19.model.board.dto.ReplyDTO">
-	 	select R.* from(
+	 	 	select rno, bno, replytext, replyer, name, r.regdate, r.updatedate 
+	 	 	,(select writer from board where bno = r.bno) writer
+			from reply r, member m
+			where r.replyer= m.userid and bno=#{bno}
+			order by rno desc 
+		 
+	 	<!-- select R.* from(
 			select rno, bno, replytext, replyer, name, r.regdate, r.updatedate ,(select writer from board where bno = r.bno) writer
 			from reply r, member m
 			where r.replyer= m.userid and bno=#{bno}
 			order by rno desc 
 		)R 
-		limit 2 offset #{start, jdbcType=INTEGER}
+		limit 2 offset #{start, jdbcType=INTEGER} -->
 	 </select>
 	 
   	 <select id="count" resultType="int">

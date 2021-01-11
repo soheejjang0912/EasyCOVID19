@@ -7,9 +7,12 @@
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script> 
 $(function(){ 
-	//listReply("1");
+	listReply("1");
 	$("#btnReply").click(function(){ 
 		reply();
+	});
+	$("#btnList").click(function(){
+		loaction.href="board.do"
 	});
 }); 
 function reply(){ 
@@ -25,7 +28,7 @@ function reply(){
 			listReply("1");
 		},
 		error: function(){
-			alert("eee");
+			alert("댓글 등록에 실패하였습니다.");
 			e.printStackTrace();
 		}
 	});
@@ -35,7 +38,12 @@ function listReply(num){
 		type: "post",
 		url: "replyList.do?bno=${dto.bno}&curPage="+num,
 		success: function(result){ 
-			$("#listReply").html(result);
+			alert(result);
+			$("#listReply").html(result); 
+		},
+		error: function(){
+			alert("리스트 불러오기에 실패하였습니다.");
+			e.printStackTrace();
 		}
 	});
 };
@@ -85,6 +93,9 @@ function listReply(num){
 	            </c:if> 
 	            </div>
 	            <!-- /댓글 --> 
+	            
+	            <!-- 댓글목록 출력 -->
+	            <div id="listReply"></div>
 	            
 	        </div>
     	</div>
