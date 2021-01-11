@@ -13,8 +13,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	 	insert into reply
   	 	(bno, replytext, replyer) values
   	 	(#{bno}, #{replytext}, #{replyer}) -->
-  	 </insert> 
-  	 <!-- 
+  	 </insert>   
+  	 
 	 <select id="listReply"
 	 resultType="com.soheejjang.easycovid19.model.board.dto.ReplyDTO">
 	 	select R.* from(
@@ -26,12 +26,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		limit 2 offset #{start, jdbcType=INTEGER}
 	 </select>
 	 
-  	
-  	 
   	 <select id="count" resultType="int">
   	 	select count(*) from reply where bno=#{bno}
   	 </select>
-  	 
-  	  -->
+  	  
 </mapper>
 

@@ -22,12 +22,11 @@ function reply(){
 		data: param,
 		success: function(){ 
 			alert("댓글이 등록되었습니다.");
-			//listReply("1");
-		} 
-		error: function(error){
+			listReply("1");
+		},
+		error: function(){
 			alert("eee");
 			e.printStackTrace();
-			
 		}
 	});
 };

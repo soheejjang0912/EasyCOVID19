@@ -15,6 +15,7 @@ import com.soheejjang.easycovid19.model.board.dto.ReplyDTO;
 import com.soheejjang.easycovid19.service.board.ReplyService;
 import com.soheejjang.easycovid19.service.selfDiagnosis.Pager;
 
+ 
 @Controller // controller bean 
 public class ReplyController {
 
