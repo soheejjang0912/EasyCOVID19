@@ -41,7 +41,7 @@
       </div>
       <!-- end loader -->
       <!-- top -->
-                    <!-- header -->
+      <!-- header -->
          <header class="header-area">
             <!-- <div class="left">
                <a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a>
@@ -61,7 +61,7 @@
                         <nav class="site-navbar">
                            <ul>
                               <!-- <li><a class="active" href="/easycovid19">Home</a></li> -->
-                              <li><a href="/easycovid19" class="logo_midle">COVID19 Home</a></li>
+                              <li><a href="/EasyCOVID19" class="logo_midle">COVID19 Home</a></li>
                               <li><a href="aboutSite.do">AboutSite</a></li>
                               <li><a href="aboutCovid.do">About</a></li>
                               <li><a href="news.do">NEWS</a></li>
@@ -70,21 +70,20 @@
                               <!-- sessionScope.userId
                               		는 자바의 
                               	   session.getAttribute("userId")  -->
+							  <!-- 로그인 상태 -->                             
                               <c:if test="${sessionScope.userId != null}"> 
-                              <li><a href="selfDiagnosis.do">자가진단 </a></li>
-                              <li><a href="logout.do">LOGOUT</a></li>
-                              <h3>
-                              	${sessionScope.name} 님
-                              	<!-- (${sessionScope.userId}) -->
-                              </h3>
-                              </c:if>
-                              
+	                              <li><a href="selfDiagnosis.do">자가진단 </a></li>
+	                              <li><a href="logout.do">LOGOUT</a></li>
+	                              <h3>
+	                              	${sessionScope.name} 님
+	                              	<!-- (${sessionScope.userId}) -->
+	                              </h3>
+	                          </c:if>
+                              <!-- 로그인 안했을경우 -->
                               <c:if test="${sessionScope.userId == null}"> 
-                              <li><a href="login.do">LOGIN</a></li>
-                              <li><a href="join.do">JOIN</a></li>
-                              </c:if>
-                              
-                              
+	                              <li><a href="login.do">LOGIN</a></li>
+	                              <li><a href="join.do">JOIN</a></li>
+	                          </c:if>
                            </ul>
                            <button class="nav-toggler">
                            <span></span>
