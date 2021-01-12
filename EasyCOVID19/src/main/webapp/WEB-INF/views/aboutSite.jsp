@@ -10,7 +10,7 @@
 	         <div class="container-fluid">
 	            <div class="row">
 	               <div class="col-md-12">
-	                  <div class="titlepage text_align_center ">
+	                  <div class="titlepage text_align_left">
 	                     <h2>ABOUT Easy COVID19 SITE</h2>
 	                     <p>코로나 관련 정보확인, 코로나 자가진단, 코로나 관련 게시판 기능을 사용할 수 있는 사이트입니다.</p>
 	                  </div>
