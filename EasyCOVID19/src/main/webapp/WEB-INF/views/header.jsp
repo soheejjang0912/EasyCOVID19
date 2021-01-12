@@ -62,8 +62,8 @@
                            <ul>
                               <!-- <li><a class="active" href="/easycovid19">Home</a></li> -->
                               <li><a href="/EasyCOVID19" class="logo_midle">COVID19 Home</a></li>
-                              <li><a href="aboutSite.do">AboutSite</a></li>
-                              <li><a href="aboutCovid.do">About</a></li>
+                              <li><a href="aboutSite.do">About Site</a></li>
+                              <li><a href="aboutCovid.do">About COVID19</a></li>
                               <li><a href="news.do">NEWS</a></li>
                               <li><a href="board.do">BOARD</a></li>
                               

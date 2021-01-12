@@ -11,8 +11,8 @@
 	         <div class="container-fluid">
 	            <div class="row">
 	               <div class="col-md-12">
-	                  <div class="titlepage text_align_center ">
-	                     <h2>About Corona Virus </h2> 
+	                  <div class="titlepage text_align_left">
+	                     <h2>About COVID19</h2> 
 	                     <p>${update}</p> 
 	                  </div>
 	               </div>
@@ -20,11 +20,8 @@
 	            <div class="row d_flex">
 	               <div class="col-md-12">
 	                  <div class="latest text_align_center">
-	                     <figure><img src="<%=request.getContextPath()%>/resources/images/cases1.png" alt="#"/></figure> 
-	                     <div class="nostrud">
-	                        <h3>코로나바이러스감염증-19(COVID-19) 정보</h3>
-	                        <p>${about}</p>  
-	                        <p>${map}</p>    
+	                     <div class="nostrud"> 
+	                        <p>${about}</p>
 	                     </div>
 	                  </div>
 	               </div> 
