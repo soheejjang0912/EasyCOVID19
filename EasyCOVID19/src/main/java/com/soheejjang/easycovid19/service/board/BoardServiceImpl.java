@@ -14,29 +14,6 @@ public class BoardServiceImpl implements BoardService {
 
 	@Inject // dao의존관계 주입 
 	BoardDAO boardDao;
-	
-	@Override
-	public void deleteFile(String fullName) {
-		// TODO Auto-generated method stub 
-	}
-
-	@Override
-	public List<String> getAttach(int bno) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void addAttach(String fullName) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void updateAttach(String fullName, int bno) {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public void create(BoardDTO dto) throws Exception {
@@ -61,15 +38,13 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardDTO> listAll(int start, int end, 
-			String searchOption, String keyword) throws Exception {
-		return boardDao.listAll(start, end, searchOption, keyword);
+	public List<BoardDTO> listAll(int start, int end) throws Exception {
+		return boardDao.listAll(start, end);
 	}
 
 	@Override
 	public void increaseViewCnt(int bno) throws Exception {
 		boardDao.increaseViewcnt(bno);
-
 	}
 
 	@Override

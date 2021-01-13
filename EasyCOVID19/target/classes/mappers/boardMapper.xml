@@ -3,17 +3,6 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
-<!-- 
-	 <select id="listAll"
-	 	resultType="com.soheejjang.easycovid19.model.board.dto.BoardDTO">
-	 	
- 	 	select bno, title, writer, name, content, regdate
-	 	from board b, member m
-	 	where b.writer = m.userId
-	 	order by bno desc
-	 	
-	 </select>
-	  -->
   
   	<select id="listAll"
 	 	resultType="com.soheejjang.easycovid19.model.board.dto.BoardDTO">
@@ -23,38 +12,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			  from board b, member m
 			  where b.writer=m.userId  
 			  order by bno desc
-			)R 
-			limit 2 offset #{start, jdbcType=INTEGER}
-			<!-- LIMIT #{end, jdbcType=INTEGER} OFFSET #{start, jdbcType=INTEGER}  -->
+			)R
+			limit 3 offset #{start}  
  
 	 </select>
-	 
-	<!--  <select id="listAll" resultType="com.soheejjang.easycovid19.model.board.dto.BoardDTO">
- 
-	 	<include refid="pagingHeader"/>
- 
-		select @rownum:=@rownum+1, bno, title, regdate, viewCnt, name
-		from board b, member m
-		where b.writer=m.userId and (@rownum:=0)=0 
-		 
-	 	<include refid="search" />
-	 	order by bno desc
-	  	
-	  	 		)A
-	  	 		where  (@rownum1:=0)=0
-	 		)B where rn between #{start} and #{end}
-	 
-	 	<include refid="pagingFooter" />   
- 
-	 </select> -->
-	 
+	  
 	 <select id="countArticle" resultType="int">
 	 	select count(*)
 	 	from board b, member m
-	 	<include refid="search" />
+	 	where b.writer=m.userid
 	 </select>
 	 
-	 <sql id = "search">
+	<!--  <sql id = "search">
 	 	<choose>
 	 		<when test="searchOption == 'all' ">
 	 			where b.writer = m.userId
@@ -68,20 +37,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 			where b.writer=m.userid
 	 		</otherwise>
 	 	</choose>
-	 </sql>
-	 
-	 <sql id="pagingHeader">
-	 	select *
-	 	from(
-	 		select @rownum1:=@rownum1+1 as rn, A.* 
-	 		from( 
-	 </sql>
-	 
-	 <sql id="pagingFooter"> 
-	 		)A 
-	 	where  (@rownum1:=0)=0
-	 )B where rn between #{start} and #{end}
-	 </sql>
+	 </sql> -->
+	  
  	 
 	 <insert id="insert">
 	 	insert into board (title, content, writer) 

@@ -15,41 +15,40 @@ import com.soheejjang.easycovid19.model.board.dto.BoardDTO;
 public class BoardDAOImpl implements BoardDAO {
 
 	@Inject // 의존관계 주입
-	SqlSession sqlSession; //myBatis도 직접 관리안하고 스프링이 관리!
+	SqlSession sqlSession; // myBatis도 직접 관리안하고 스프링이 관리!
+
+	// 게시물 목록
+	@Override
+	public List<BoardDTO> listAll(int start, int end) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("start", start);
+		map.put("end", start);
+		return sqlSession.selectList("board.listAll", map);
+	}
+
+	@Override
+	public int countArticle(String searchOption, String keyword) throws Exception {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		return sqlSession.selectOne("board.countArticle", map); 
+	}
 	
 	@Override
-	public void deleteFile(String fullName) {
-		// TODO Auto-generated method stub 
+	public void increaseViewcnt(int bno) throws Exception {
+		sqlSession.update("board.increaseViewcnt", bno);
 	}
-
-	@Override
-	public List<String> getAttach(int bno) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void addAttach(String fullName) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void updateAttach(String fullName, int bno) {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 	@Override
 	public void create(BoardDTO dto) throws Exception {
 		sqlSession.insert("board.insert", dto);
 	}
 
 	@Override
-	public BoardDTO read(int bno) throws Exception { 
+	public BoardDTO read(int bno) throws Exception {
 		return sqlSession.selectOne("board.view", bno);
 	}
-
+	 
 	@Override
 	public void update(BoardDTO dto) throws Exception {
 		// TODO Auto-generated method stub
@@ -61,32 +60,5 @@ public class BoardDAOImpl implements BoardDAO {
 		// TODO Auto-generated method stub
 
 	}
-	
-	//게시물 목록
-	@Override
-	public List<BoardDTO> listAll(int start, int end, 
-			String searchOption, String keyword) throws Exception {
-		Map<String,Object> map = new HashMap<String, Object>(); 
-		map.put("searchOption", searchOption);
-		map.put("keyword", keyword); 
-		map.put("start", start);
-		map.put("end", start); 
-		
-		return sqlSession.selectList("board.listAll", map);
-	}
-
-	@Override
-	public void increaseViewcnt(int bno) throws Exception {
-		sqlSession.update("board.increaseViewcnt", bno); 
-	}
-
-	@Override
-	public int countArticle(String searchOption, String keyword) throws Exception {
-		Map<String,String> map = new HashMap<String, String>();
-		map.put("searchOption", searchOption);
-		map.put("keyword", keyword);
-		return sqlSession.selectOne("board.countArticle", map);
-		
-	}
-
+ 
 }

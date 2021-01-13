@@ -45,43 +45,23 @@ public class BoardController {
 		
 		int start= pager.getPageBegin()-1; //시작번호
 		int end= pager.getPageEnd();		//끝번호 
+		int end1= 2;		//끝번호  
 		
-		
-		System.out.println("--start----------------"+ start);
-		System.out.println("---end---------------"+ end); 
-		
-		List<BoardDTO> list = boardService.listAll(
-				start, end, searchOption, keyword); //목록
-		
-
+		List<BoardDTO> list = boardService.listAll(start, end); //목록
+		 
 		System.out.println("-list-----------------"+ list);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board");// 이동할 페이지 지정
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("list", list); // 맵에 자료 저장
-		map.put("searchOption", searchOption);
-		map.put("keyword", keyword); 
+		map.put("list", list); // 맵에 자료 저장 
 		map.put("pager", pager);
 		map.put("count", count);
 		
 		mav.addObject("map", map); // 데이터 저장
 		System.out.println("--map----------------"+ map);
 		return mav; // 페이지 이동(출력) 
-	}  
-	
-	/*
-	@RequestMapping("/board.do") // 세부적인 mapping
-	public ModelAndView list() throws Exception{
-		List<BoardDTO> list = boardService.listAll(0, 0, "", ""); //목록 (start, end, searchOption, keyword)
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("board");// 이동할 페이지 지정
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("list", list); // 맵에 자료 저장
-		mav.addObject("map", map); // 데이터 저장
-		return mav; // 페이지 이동(출력) 
-	}
-	*/
+	}   
 	
 	@RequestMapping("/insert.do")
 	public String insert(@ModelAttribute BoardDTO dto, 
