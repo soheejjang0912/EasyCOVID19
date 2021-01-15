@@ -19,7 +19,7 @@
 	};
 </script>
 
-<div class="aboutSite">
+<div class="board">
 	<div class="cases">
 		<div class="container-fluid">
 			<div class="row">
