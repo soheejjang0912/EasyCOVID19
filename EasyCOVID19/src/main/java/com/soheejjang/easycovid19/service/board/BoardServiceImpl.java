@@ -38,8 +38,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardDTO> listAll(int start, int end) throws Exception {
-		return boardDao.listAll(start, end);
+	public List<BoardDTO> listAll(int start) throws Exception {
+		return boardDao.listAll(start);
 	}
 
 	@Override

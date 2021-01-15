@@ -12,7 +12,7 @@ public interface BoardDAO {
 	public void delete(int bno) throws Exception; //글 삭제
 	
 	//목록
-	public List<BoardDTO> listAll(int start, int end) throws Exception;
+	public List<BoardDTO> listAll(int start) throws Exception;
 	
 	//조회수 증가 처리
 	public void increaseViewcnt(int bno) throws Exception;

@@ -12,7 +12,7 @@ public interface BoardService {
 	public void delete(int bno) throws Exception; //글 삭제
 	
 	//목록(페이지 나누기, 검색기능 포함)
-	public List<BoardDTO> listAll(int start, int end) throws Exception;
+	public List<BoardDTO> listAll(int start) throws Exception;
 	
 	//조회수 증가처리
 	public void increaseViewCnt(int bno) throws Exception;

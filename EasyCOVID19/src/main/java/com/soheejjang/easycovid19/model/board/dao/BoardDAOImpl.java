@@ -19,10 +19,9 @@ public class BoardDAOImpl implements BoardDAO {
 
 	// 게시물 목록
 	@Override
-	public List<BoardDTO> listAll(int start, int end) throws Exception {
+	public List<BoardDTO> listAll(int start) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("start", start);
-		map.put("end", start);
+		map.put("start", start); 
 		return sqlSession.selectList("board.listAll", map);
 	}
 
