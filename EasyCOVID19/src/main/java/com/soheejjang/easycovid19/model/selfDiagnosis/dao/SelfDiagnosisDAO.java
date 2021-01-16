@@ -11,8 +11,8 @@ public interface SelfDiagnosisDAO {
 	public void update(SelfDiagnosisDTO dto) throws Exception; //글 수정
 	public void delete(int bno) throws Exception; //글 삭제
 
-	//목록(페이지 나누기, 검색 기능 포함)
-	public List<SelfDiagnosisDTO> listAll(int start, int end, String writer)
+	//목록
+	public List<SelfDiagnosisDTO> listAll(int start, String writer)
 			throws Exception; 
 	
 	//레코드 갯수 계산

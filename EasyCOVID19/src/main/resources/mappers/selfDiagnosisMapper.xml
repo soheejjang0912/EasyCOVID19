@@ -12,14 +12,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			  where writer=#{writer}
 			  order by bno desc 
 			)R 
-			limit 2 offset #{start, jdbcType=INTEGER} 
+			limit 3 offset #{start, jdbcType=INTEGER} 
 	 </select>
 	 
 	 <insert id="insert">
 	 	insert into selfDiagnosis (writer, fever, cough, soreThroat,bodyAche, etc, etcDetails, regdate) 
 	 	values (#{writer}, #{fever}, #{cough}, #{soreThroat}, #{bodyAche}, #{etc}, #{etcDetails}, now())
-	 </insert>
-	 
+	 </insert> 
 	 
 	 <select id="countArticle" resultType="int">
 	 	select count(*)

@@ -18,10 +18,9 @@ public class SelfDiagnosisDAOImpl implements SelfDiagnosisDAO {
 	SqlSession sqlSession;
 	
 	@Override
-	public List<SelfDiagnosisDTO> listAll(int start, int end, String writer) throws Exception {
+	public List<SelfDiagnosisDTO> listAll(int start, String writer) throws Exception {
 		Map<String,Object> map = new HashMap<String, Object>();  
-		map.put("start", start);
-		map.put("end", end); 
+		map.put("start", start); 
 		map.put("writer", writer); 
 		return sqlSession.selectList("selfDiagnosis.listAll", map);
 	}

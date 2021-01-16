@@ -17,8 +17,8 @@ public class SelfDiagnosisServiceImpl implements SelfDiagnosisService {
 	SelfDiagnosisDAO selfDiagnosisDao;
 
 	@Override
-	public List<SelfDiagnosisDTO> listAll(int start, int end, String writer) throws Exception {
-		return selfDiagnosisDao.listAll(start, end, writer);
+	public List<SelfDiagnosisDTO> listAll(int start, String writer) throws Exception {
+		return selfDiagnosisDao.listAll(start, writer);
 	}
 	
 	@Override
