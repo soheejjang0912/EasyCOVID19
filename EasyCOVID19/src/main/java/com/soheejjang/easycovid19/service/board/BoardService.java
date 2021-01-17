@@ -17,6 +17,5 @@ public interface BoardService {
 	//조회수 증가처리
 	public void increaseViewCnt(int bno) throws Exception;
 	//레코드 갯수 계산
-	public int countArticle(String searchOption, String keyword) throws Exception;
-	
+	public int countArticle() throws Exception; 
 }

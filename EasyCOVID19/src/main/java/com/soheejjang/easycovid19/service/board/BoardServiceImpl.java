@@ -48,8 +48,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int countArticle(String searchOption, String keyword) throws Exception { 
-		return boardDao.countArticle(searchOption, keyword);
+	public int countArticle() throws Exception { 
+		return boardDao.countArticle();
 	}
 
 }

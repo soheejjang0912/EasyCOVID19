@@ -30,7 +30,8 @@
 				</div>
 			</div>
 
-			<button type="button" class="btn btn-dark" id="btnWrite" style="float:right;">글쓰기</button>
+			<button type="button" class="btn btn-dark" id="btnWrite"
+				style="float: right;">글쓰기</button>
 			&nbsp;
 			<h5>🙋‍♂️${map.count}개의 게시물이있습니다.</h5>
 
@@ -78,21 +79,21 @@
 									<a href="javascript:list(${num})">${num}</a>&nbsp;
        						</c:otherwise>
 							</c:choose>
-						</c:forEach> <c:if test="${map.pager.curBlock <= map.pager.totBlock}">
+						</c:forEach> 
+						<c:if test="${map.pager.curBlock <= map.pager.totBlock}">
 							<a href="javascript:list(${map.pager.nextPage})">[다음]</a>
-						</c:if> <c:if test="${map.pager.curPage < map.pager.totPage}">
+						</c:if> 
+						<c:if test="${map.pager.curPage < map.pager.totPage}">
 							<a href="javascript:list(${map.pager.totPage})">[끝]</a>
-						</c:if> <%-- <c:forEach var="num" begin="1" end="${map.pager.totPage}"> 
-       					<a href="javascript:list('${num}')">${num}</a> 
-     				</c:forEach> --%></td>
+						</c:if></td>
 				</tr>
 			</div>
-		</div> 
+		</div>
 	</div>
-	&nbsp; 
+	&nbsp;
 </div>
 
- 
+
 
 <!--  footer -->
 <jsp:include page="footer.jsp" />

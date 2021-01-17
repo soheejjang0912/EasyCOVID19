@@ -14,7 +14,7 @@
 			reply();
 		});
 		$("#btnList").click(function() {
-			loaction.href = "board.do"
+			location.href = "board.do"
 		});
 	});
 	function reply() {
@@ -60,9 +60,11 @@
 				<div class="col-md-12">
 					<div class="titlepage text_align_left ">
 						<h2>${dto.title}</h2>
-						<p>${dto.writer}(${dto.name}) 님이 쓴 글입니다.  
-						<p><fmt:formatDate value="${dto.regdate}"
-									pattern="yyyy-MM-dd HH:mm:ss" /></p>			
+						<p>${dto.writer}(${dto.name})님이쓴 글입니다.
+						<p>
+							<fmt:formatDate value="${dto.regdate}"
+								pattern="yyyy-MM-dd HH:mm:ss" />
+						</p>
 						<p>조회수 : ${dto.viewCnt}</p>
 					</div>
 				</div>
@@ -70,8 +72,8 @@
 			<div class="row d_flex">
 				<div class="col-md-12">
 					<div class="latest text_align_center">
-						<div class="nostrud">  
-							<h2>${dto.content}</h2> 
+						<div class="nostrud">
+							<h2>${dto.content}</h2>
 							<br> <br>
 						</div>
 					</div>
@@ -83,8 +85,8 @@
 				<c:if test="${sessionScope.userId == dto.writer}">
 					<button type="button" id="btnUpdate">수정</button>
 					<button type="button" id="btnDelete">삭제</button>
-				</c:if>
-				<button type="button" id="btnList">목록</button>
+				</c:if> 
+				<button type="button" id="btnList" class="btn btn-dark" >목록</button>
 			</div>
 
 			<!-- 댓글 -->

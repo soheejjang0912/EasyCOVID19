@@ -13,8 +13,7 @@ public class BoardDTO {
 	private int viewCnt; //조회수
 	private String name; //작성자 이름 (member테이블과 조인)
 	private int cnt; //댓글 갯수
-	private String show; //화면표시 여부
-	private String[] files; //첨부파일 배열
+	private String show; //화면표시 여부 
 	
 	public int getBno() {
 		return bno;
@@ -70,17 +69,11 @@ public class BoardDTO {
 	public void setShow(String show) {
 		this.show = show;
 	}
-	public String[] getFiles() {
-		return files;
-	}
-	public void setFiles(String[] files) {
-		this.files = files;
-	}
 	
 	@Override
 	public String toString() {
 		return "BoardDTO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer
 				+ ", regdate=" + regdate + ", viewCnt=" + viewCnt + ", name=" + name + ", cnt=" + cnt + ", show=" + show
-				+ ", files=" + Arrays.toString(files) + "]";
-	}
+				+ "]";
+	}  
 }
