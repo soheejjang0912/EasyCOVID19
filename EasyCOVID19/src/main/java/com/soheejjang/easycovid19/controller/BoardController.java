@@ -67,17 +67,16 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "view.do", method = RequestMethod.GET)
-	public ModelAndView view(@RequestParam int bno, @RequestParam(defaultValue = "1") int curPage, // 원하는 페이지 (시작은 기본 1)
-			@RequestParam(defaultValue = "all") String searchOption, @RequestParam(defaultValue = "") String keyword,
+	public ModelAndView view(@RequestParam int bno, 
+			@RequestParam(defaultValue = "1") int curPage, // 원하는 페이지 (시작은 기본 1),
 			HttpSession session) throws Exception {
 		boardService.increaseViewCnt(bno);
+		System.out.println("카운트한다아아 ");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("view");
 		mav.addObject("dto", boardService.read(bno));
-		mav.addObject("curPage", curPage);
-		mav.addObject("search_option", searchOption);
-		mav.addObject("keyword", keyword);
-		return mav;
+		mav.addObject("curPage", curPage); 
+		return mav; //mav.setViewName("view"); view.jsp로 감
 	}
 
 }
