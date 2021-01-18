@@ -61,6 +61,7 @@ public class MemberDAOImpl implements MemberDAO {
 		map.put("userId", userId);
 		map.put("userPw", userPw);
 		int count = sqlSession.selectOne("member.checkPassword",map); //selectOne은 하나밖에 못보내서 map으로 묶어 전달해야함
+		//레코드가 1개이면 true, 0개이면 false 리턴
 		if(count==1)
 			result = true; 
 		return result;

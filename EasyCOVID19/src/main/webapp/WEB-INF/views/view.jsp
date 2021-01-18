@@ -16,6 +16,9 @@
 		$("#btnList").click(function() {
 			location.href = "board.do"
 		});
+		$("#btnUpdate").click(function() {
+			location.href = "board.do"
+		}); 
 	});
 	function reply() {
 		var replytext = $("#replytext").val();
