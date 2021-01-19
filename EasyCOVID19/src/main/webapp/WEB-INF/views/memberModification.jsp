@@ -71,6 +71,11 @@
 							<button type="button" class="send_btn" id="btnDelete">삭제</button>
 							&nbsp;
 						</div>
+
+						<div class="col-md-12">
+							<div style="color: red">${message}</div>
+						</div>
+
 					</div>
 				</form>
 			</div>

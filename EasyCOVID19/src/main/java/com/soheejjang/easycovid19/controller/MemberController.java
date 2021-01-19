@@ -69,20 +69,21 @@ public class MemberController {
 	}
 
 	@RequestMapping("/memberModification.do")
-	public String modification(@RequestParam String userId, Model model) {
+	public String modification(@RequestParam String userId, Model model) { // memberModification.do?userId=${sessionScope.userId}
 		// 회원정보를 모델에 저장
 		model.addAttribute("dto", memberDao.detail(userId));
 		// 포워딩
-		return "memberModification";
+		return "memberModification"; // detail
 	}
 
 	@RequestMapping("/update.do")
-	public String update(@ModelAttribute MemberDTO dto, Model model) {
+	public String update(@ModelAttribute MemberDTO dto, Model model, HttpSession session) {
 		// 비밀번호 체크
 		boolean result = memberDao.checkPassword(dto.getUserId(), dto.getUserPw());
 		if (result) {
 			memberDao.update(dto);
-			return "redirect:/member/memberModification.do";
+			String user = (String) session.getAttribute("userId");
+			return "redirect:/memberModification.do?userId=" + user;
 		} else {
 			MemberDTO dto2 = memberDao.detail(dto.getUserId());
 			dto.setJoinDate(dto2.getJoinDate());
@@ -90,6 +91,23 @@ public class MemberController {
 			model.addAttribute("message", "비밀번호가 일치하지 않습니다.");
 			return "memberModification";
 		}
+	}
+
+	@RequestMapping("delete.do")
+	public String delete(@RequestParam String userId, @RequestParam String userPw, Model model) {
+		// 비밀번호 체크
+		boolean result = memberDao.checkPassword(userId, userPw);
+		if (result) {
+			// 삭제 처리
+			memberDao.delete(userId);
+			return "redirect:/logout.do";
+		} else {
+			// 비번이 틀렸을 때
+			model.addAttribute("message", "비밀번호가 일치하지 않습니다.");
+			model.addAttribute("dto", memberDao.detail(userId));
+			return "memberModification";
+		}
+
 	}
 
 }
