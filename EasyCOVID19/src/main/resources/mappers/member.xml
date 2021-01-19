@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
 	<select id = "list"
-		resultType="com.soheejjang.easycovid19.model.dto.MemberDTO">
+		resultType="com.soheejjang.easycovid19.model.member.dto.MemberDTO">
 		select * from member order by name 
 	</select>
 	
@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="detail"
-		resultType="com.soheejjang.easycovid19.model.dto.MemberDTO">
+		resultType="com.soheejjang.easycovid19.model.member.dto.MemberDTO">
 		select * from member
 		where userId = #{userId}
 	</select>

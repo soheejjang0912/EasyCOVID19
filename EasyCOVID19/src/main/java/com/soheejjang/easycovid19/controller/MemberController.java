@@ -13,10 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.soheejjang.easycovid19.model.dao.MemberDAO;
-import com.soheejjang.easycovid19.model.dto.MemberDTO;
+import org.springframework.web.servlet.ModelAndView; 
+import com.soheejjang.easycovid19.model.member.dao.MemberDAO;
+import com.soheejjang.easycovid19.model.member.dto.MemberDTO;
 import com.soheejjang.easycovid19.service.member.MemberService;
 
 @Controller // 현재클래스가 스프링에서 관리하는 컨트롤러라고 등록한 것
@@ -46,7 +45,7 @@ public class MemberController {
 	public ModelAndView loginCheck(@ModelAttribute MemberDTO dto, HttpSession session) {
 		// 로그인 성공 => 이름이 넘어옴, 실패=> null이 넘어옴
 		String name = memberService.loginCheck(dto, session);
-		logger.info("name:" + name);
+		//logger.info("name:" + name);
 		ModelAndView mav = new ModelAndView();
 		if (name != null) { // 로그인 성공하면 시작페이지로 이동
 			mav.setViewName("index");
@@ -68,12 +67,12 @@ public class MemberController {
 		return "redirect:/login.do";
 	}
 
-	@RequestMapping("/memberModification.do")
-	public String modification(@RequestParam String userId, Model model) { // memberModification.do?userId=${sessionScope.userId}
+	@RequestMapping("/memberEdit.do")
+	public String modification(@RequestParam String userId, Model model) { // memberEdit.do?userId=${sessionScope.userId}
 		// 회원정보를 모델에 저장
 		model.addAttribute("dto", memberDao.detail(userId));
 		// 포워딩
-		return "memberModification"; // detail
+		return "memberEdit"; // detail
 	}
 
 	@RequestMapping("/update.do")
@@ -83,12 +82,12 @@ public class MemberController {
 		if (result) {
 			memberDao.update(dto);
 			String user = (String) session.getAttribute("userId");
-			return "redirect:/memberModification.do?userId=" + user;
+			return "redirect:/memberEdit.do?userId=" + user;
 		} else {
 			MemberDTO dto2 = memberDao.detail(dto.getUserId());
 			model.addAttribute("dto", dto2);
 			model.addAttribute("message", "비밀번호가 일치하지 않습니다.");
-			return "memberModification";
+			return "memberEdit";
 		}
 	}
 
@@ -104,7 +103,7 @@ public class MemberController {
 			// 비번이 틀렸을 때
 			model.addAttribute("message", "비밀번호가 일치하지 않습니다.");
 			model.addAttribute("dto", memberDao.detail(userId));
-			return "memberModification";
+			return "memberEdit";
 		}
 	}
 

@@ -73,7 +73,7 @@
 							  <!-- 로그인 상태 -->                             
                               <c:if test="${sessionScope.userId != null}"> 
 	                              <li><a href="selfDiagnosis.do">자가진단 </a></li>
-	                              <li><a href="memberModification.do?userId=${sessionScope.userId}">회원정보 수정</a></li>
+	                              <li><a href="memberEdit.do?userId=${sessionScope.userId}">회원정보 수정</a></li>
 	                              <li><a href="logout.do">LOGOUT</a></li>
 	                              <h3>
 	                              	${sessionScope.name} 님
