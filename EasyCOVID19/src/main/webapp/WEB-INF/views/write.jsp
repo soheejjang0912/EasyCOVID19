@@ -21,21 +21,16 @@ $(function(){
             <div class="row">
                 <div class="col-md-12">
                      <div class="titlepage text_align_left">
-                        <h2>글 쓰기</h2>
+                        <h2>글 쓰기</h2><br>
                         <form id = "writeForm" name="writeForm" method="post"
                         	action="insert.do"> 
                         	<div>
                         		제목 <input name="title" id="title" size="80" placeholder="제목을 입력하세요.">
-                        	</div>	 
-                        	<div style="width:800px;">
-                        		내용 <textarea id="content" name="content" rows="6" cols="80"
-                        			 placeholder="내용을 입력하세요."></textarea>
-                        	</div> 
+                        	</div><br>
                         	<div>
-                        		첨부파일을 등록하세요.
-                        		<div class="fileDrop"></div>
-                        		<div id="uploardedList"></div>
-                        	</div> 
+                        		내용 <input id="content" name="content" size="80" 
+                        			 placeholder="내용을 입력하세요.">
+                        	</div>  <!-- rows="6" cols="80" -->
                         	<div style="width:700px; text-align:center"> 
                         		<button type="button" id="btnSave" name="btnSave" class="send_btn">확인</button>
                         	</div> 

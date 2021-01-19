@@ -17,7 +17,7 @@
 			location.href = "board.do"
 		});
 		$("#btnUpdate").click(function() {
-			location.href = "board.do"
+			location.href = "viewEdit.do?bno=${dto.bno}"
 		}); 
 	});
 	function reply() {
@@ -86,10 +86,10 @@
 			<div>
 				<input type="hidden" name="bno" value="${bto.bno}">
 				<c:if test="${sessionScope.userId == dto.writer}">
-					<button type="button" id="btnUpdate">수정</button>
-					<button type="button" id="btnDelete">삭제</button>
+					<button type="button" id="btnUpdate" class="btn btn-dark">수정</button>
+					<button type="button" id="btnDelete" class="btn btn-dark">삭제</button>
 				</c:if> 
-				<button type="button" id="btnList" class="btn btn-dark" >목록</button>
+				<button type="button" id="btnList" class="btn btn-dark">목록</button>
 			</div>
 
 			<!-- 댓글 -->

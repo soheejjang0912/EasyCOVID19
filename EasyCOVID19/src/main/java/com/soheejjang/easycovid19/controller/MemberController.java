@@ -68,7 +68,7 @@ public class MemberController {
 	}
 
 	@RequestMapping("/memberEdit.do")
-	public String modification(@RequestParam String userId, Model model) { // memberEdit.do?userId=${sessionScope.userId}
+	public String memberEdit(@RequestParam String userId, Model model) { // memberEdit.do?userId=${sessionScope.userId}
 		// 회원정보를 모델에 저장
 		model.addAttribute("dto", memberDao.detail(userId));
 		// 포워딩
