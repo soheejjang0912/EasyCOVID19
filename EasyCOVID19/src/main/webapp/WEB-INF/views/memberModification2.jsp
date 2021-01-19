@@ -24,17 +24,16 @@
 		});
 	});
 </script>
-
 <div class="memberModification">
-	<div class="cases">
-		<div class="container-fluid">
+	<div class="container">
+		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="titlepage text_align_left">
-						<h2>회원 수정, 삭제</h2>
+						<h2>JOIN</h2>
 					</div>
 				</div>
-			</div> 
+			</div>
 			<div class="row">
 				<div class="col-md-12">
 					<form id="form1" name="form1" method="post" class="main_form">
@@ -65,9 +64,6 @@
 									value="<fmt:formatDate value="${dto.joinDate}"
 											pattern="yyyy-MM-dd HH:mm:ss" />">
 							</div>
-							<div class="col-md-12">
-								<div style="color: red">${message}</div>
-							</div>
 							<div class="col-md-6">
 								<button type="button" class="send_btn" id="btnUpdate">수정</button>
 								&nbsp;
@@ -76,14 +72,18 @@
 								<button type="button" class="send_btn" id="btnDelete">삭제</button>
 								&nbsp;
 							</div>
+
+							<div class="col-md-12">
+								<div style="color: red">${message}</div>
+							</div>
+
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	&nbsp;
 </div>
-
+<!-- end contact -->
 <!--  footer -->
 <jsp:include page="footer.jsp" />

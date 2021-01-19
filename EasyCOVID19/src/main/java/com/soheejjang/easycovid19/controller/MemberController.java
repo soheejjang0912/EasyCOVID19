@@ -86,14 +86,13 @@ public class MemberController {
 			return "redirect:/memberModification.do?userId=" + user;
 		} else {
 			MemberDTO dto2 = memberDao.detail(dto.getUserId());
-			dto.setJoinDate(dto2.getJoinDate());
-			model.addAttribute("dto", dto);
+			model.addAttribute("dto", dto2);
 			model.addAttribute("message", "비밀번호가 일치하지 않습니다.");
 			return "memberModification";
 		}
 	}
 
-	@RequestMapping("delete.do")
+	@RequestMapping("/delete.do")
 	public String delete(@RequestParam String userId, @RequestParam String userPw, Model model) {
 		// 비밀번호 체크
 		boolean result = memberDao.checkPassword(userId, userPw);
@@ -107,7 +106,6 @@ public class MemberController {
 			model.addAttribute("dto", memberDao.detail(userId));
 			return "memberModification";
 		}
-
 	}
 
 }
