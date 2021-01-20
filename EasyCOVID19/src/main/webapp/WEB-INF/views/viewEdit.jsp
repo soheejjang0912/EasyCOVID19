@@ -9,7 +9,8 @@
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
 $(function(){
-	$("#btnSave").click(function(){ 
+	$("#btnUpdate").click(function(){ 
+		//보내는 방법!
 		//document.writeForm.action="insert.do"
 		document.writeForm.submit(); // insert.do로 간다.
 	});
@@ -23,19 +24,21 @@ $(function(){
                      <div class="titlepage text_align_left">
                         <h2>글 쓰기</h2>
                         <form id = "writeForm" name="writeForm" method="post"
-                        	action="insert.do"> 
+                        	action="viewUpdate.do"> 
                         	<div><br>
                         		제목 <input name="title" id="title" size="80"
                         		value="${dto.title}">
                         	</div><br>
                         	 
                         	<div>
-                        		내용 <input id="content" name="content" size="80"  style="height: 300px;" 
+                        		내용 <input id="content" name="content" size="80" style="height: 300px;" 
                         			 value="${dto.content}">
                         	</div>  
                         	 
+                        	<input type= "hidden" name="bno" id="bno" value="${dto.bno}"> 
+                        	
                         	<div style="width:700px; text-align:center"> 
-                        		<button type="button" id="btnSave" name="btnSave" class="send_btn">확인</button>
+                        		<button type="button" id="btnUpdate" name="btnUpdate" class="send_btn">확인</button>
                         	</div> 
                         </form>
                      </div>

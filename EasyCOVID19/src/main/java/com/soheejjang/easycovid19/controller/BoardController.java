@@ -86,4 +86,18 @@ public class BoardController {
 		return "viewEdit";
 	}
 
+	@RequestMapping("/viewUpdate.do")
+	public String viewUpdate (@ModelAttribute BoardDTO dto, 
+			Model model) throws Exception { 
+		boardService.update(dto);
+		return "redirect:/board.do"; 
+		///view.do?bno=76
+	}
+	
+	@RequestMapping("/viewDelete.do")
+	public String delete(@RequestParam int bno, Model model) throws Exception {   
+		System.out.println(bno);
+		boardService.delete(bno);
+		return "redirect:/board.do";  
+	}
 }

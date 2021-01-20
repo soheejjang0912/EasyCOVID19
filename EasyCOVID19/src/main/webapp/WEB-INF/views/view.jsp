@@ -18,7 +18,14 @@
 		});
 		$("#btnUpdate").click(function() {
 			location.href = "viewEdit.do?bno=${dto.bno}"
-		}); 
+		});
+
+		$("#btnDelete").click(function() { 
+			if (confirm("삭제하시겠습니까?")) {
+				location.href = "viewDelete.do?bno=${dto.bno}"
+			}
+		});
+
 	});
 	function reply() {
 		var replytext = $("#replytext").val();
@@ -63,7 +70,7 @@
 				<div class="col-md-12">
 					<div class="titlepage text_align_left ">
 						<h2>${dto.title}</h2>
-						<p>${dto.writer}(${dto.name})님이쓴 글입니다.
+						<p>${dto.writer}(${dto.name})님이쓴글입니다.
 						<p>
 							<fmt:formatDate value="${dto.regdate}"
 								pattern="yyyy-MM-dd HH:mm:ss" />
@@ -88,7 +95,7 @@
 				<c:if test="${sessionScope.userId == dto.writer}">
 					<button type="button" id="btnUpdate" class="btn btn-dark">수정</button>
 					<button type="button" id="btnDelete" class="btn btn-dark">삭제</button>
-				</c:if> 
+				</c:if>
 				<button type="button" id="btnList" class="btn btn-dark">목록</button>
 			</div>
 
