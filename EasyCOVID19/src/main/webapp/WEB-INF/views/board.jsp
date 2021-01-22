@@ -14,8 +14,6 @@
 	});
 	function list(page) {
 		location.href = 'board.do?curPage=' + page;
-		/* +"&searchOption=${map.searchOption}"
-		+"&keyword=${map.keyword}"; */
 	};
 </script>
 
@@ -42,21 +40,18 @@
 							<div class=" col-md-12">
 								<div id="ho_efcet" class="reader text_align_center">
 									<%-- <i><img src="<%=request.getContextPath()%>/resources/images/doctor1.png" alt="#"/></i> --%>
-									<a
-										href="view.do?bno=${row.bno}&curPage=${map.pager.curPage}&search_option=${map.search_option}&keyword=${map.keyword}">
-										<h3>${row.title}</h3>
+									<a href="view.do?bno=${row.bno}&curPage=${map.pager.curPage}">
+										<h3>${row.title}</h3> <br>
+										<h5 style="line-height: 20px">🧑 ${row.name} 님이 작성하신
+											글입니다.</h5>
+										<br>
+										<h5 style="line-height: 30px">
+											<fmt:formatDate value="${row.regdate}"
+												pattern="yyyy-MM-dd HH:mm:ss" />
+										</h5> <br> <span><img
+											src="<%=request.getContextPath()%>/resources/images/do.png"
+											alt="#" /></span>
 									</a>
-
-									<h5 style="line-height: 90px">${row.content}</h5>
-									<h5 style="line-height: 20px">🧑 ${row.name} 님이 작성하신 글입니다.</h5>
-									<!--${row.bno}, ${row.writer}, ${row.regdate}, ${row.viewCnt}  -->
-									<h5 style="line-height: 30px">
-										<fmt:formatDate value="${row.regdate}"
-											pattern="yyyy-MM-dd HH:mm:ss" />
-									</h5>
-									<span><img
-										src="<%=request.getContextPath()%>/resources/images/do.png"
-										alt="#" /></span>
 								</div>
 							</div>
 						</div>
@@ -64,8 +59,9 @@
 				</div>
 				<!-- 페이지 네비게이션 -->
 				<tr>
-					<td colspan="5" align="center"><c:if
-							test="${map.pager.curBlock > 1}">
+					<td colspan="5" align="center">
+						<c:if
+							test="${map.pager.curBlock != 1}">
 							<a href="javascript:list(1)">[처음]</a>
 						</c:if> <c:if test="${map.pager.curBlock > 1}">
 							<a href="javascript:list('${map.pager.prevPage}')">[이전]</a>
@@ -79,11 +75,9 @@
 									<a href="javascript:list(${num})">${num}</a>&nbsp;
        						</c:otherwise>
 							</c:choose>
-						</c:forEach> 
-						<c:if test="${map.pager.curBlock <= map.pager.totBlock}">
+						</c:forEach> <c:if test="${map.pager.curBlock <= map.pager.totBlock}">
 							<a href="javascript:list(${map.pager.nextPage})">[다음]</a>
-						</c:if> 
-						<c:if test="${map.pager.curPage < map.pager.totPage}">
+						</c:if> <c:if test="${map.pager.curPage < map.pager.totPage}">
 							<a href="javascript:list(${map.pager.totPage})">[끝]</a>
 						</c:if></td>
 				</tr>
@@ -93,7 +87,4 @@
 	&nbsp;
 </div>
 
-
-
-<!--  footer -->
 <jsp:include page="footer.jsp" />

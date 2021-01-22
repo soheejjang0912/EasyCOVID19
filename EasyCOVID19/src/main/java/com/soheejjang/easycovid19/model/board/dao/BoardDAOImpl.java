@@ -6,7 +6,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSession; 
 import org.springframework.stereotype.Repository;
 
 import com.soheejjang.easycovid19.model.board.dto.BoardDTO;
@@ -17,6 +17,8 @@ public class BoardDAOImpl implements BoardDAO {
 	@Inject // 의존관계 주입
 	SqlSession sqlSession; // myBatis도 직접 관리안하고 스프링이 관리!
 
+	//! 자동완성 @Autowired 로 작성했다가 에러났었음... 잘 확인할것 ! 
+	
 	// 게시물 목록
 	@Override
 	public List<BoardDTO> listAll(int start) throws Exception {
@@ -28,11 +30,6 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public int countArticle() throws Exception { 
 		return sqlSession.selectOne("board.countArticle"); 
-	}
-	
-	@Override
-	public void increaseViewcnt(int bno) throws Exception {
-		sqlSession.update("board.increaseViewcnt", bno);
 	}
 	
 	@Override

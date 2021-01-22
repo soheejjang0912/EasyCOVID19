@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listAll"
 		resultType="com.soheejjang.easycovid19.model.board.dto.BoardDTO">
 		select R.* from(
-		select bno, title, regdate, viewCnt, name,
+		select bno, title, regdate, name,
 		content
 		from board b, member m
 		where b.writer=m.userId
@@ -29,15 +29,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(#{title}, #{content}, #{writer})
 	</insert>
 
-	<update id="increaseViewcnt">
-		update board
-		set viewCnt=viewCnt+1
-		where bno=#{bno}
-	</update>
-
 	<select id="view"
 		resultType="com.soheejjang.easycovid19.model.board.dto.BoardDTO">
-		select bno, title, content, regdate, viewCnt, name, writer
+		select bno, title, content, regdate, name, writer
 		from board b, member m
 		where b.writer= m.userid and bno=#{bno}
 	</select>

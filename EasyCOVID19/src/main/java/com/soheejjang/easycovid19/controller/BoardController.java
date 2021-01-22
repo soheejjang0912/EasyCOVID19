@@ -70,9 +70,7 @@ public class BoardController {
 	@RequestMapping(value = "view.do", method = RequestMethod.GET)
 	public ModelAndView view(@RequestParam int bno, 
 			@RequestParam(defaultValue = "1") int curPage, // 원하는 페이지 (시작은 기본 1),
-			HttpSession session) throws Exception {
-		boardService.increaseViewCnt(bno);
-		System.out.println("카운트한다아아 ");
+			HttpSession session) throws Exception { 
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("view");
 		mav.addObject("dto", boardService.read(bno));
@@ -90,8 +88,8 @@ public class BoardController {
 	public String viewUpdate (@ModelAttribute BoardDTO dto, 
 			Model model) throws Exception { 
 		boardService.update(dto);
-		return "redirect:/board.do"; 
-		///view.do?bno=76
+		int bno = dto.getBno();
+		return "redirect:/view.do?bno="+bno; 
 	}
 	
 	@RequestMapping("/viewDelete.do")

@@ -10,7 +10,7 @@
 <script>
 $(function(){
 	$("#btnUpdate").click(function(){ 
-		//보내는 방법!
+		//보내는 방법 두가지!
 		//document.writeForm.action="insert.do"
 		document.writeForm.submit(); // insert.do로 간다.
 	});
@@ -33,13 +33,11 @@ $(function(){
                         	<div>
                         		내용 <input id="content" name="content" size="80" style="height: 300px;" 
                         			 value="${dto.content}">
-                        	</div>  
-                        	 
-                        	<input type= "hidden" name="bno" id="bno" value="${dto.bno}"> 
-                        	
-                        	<div style="width:700px; text-align:center"> 
-                        		<button type="button" id="btnUpdate" name="btnUpdate" class="send_btn">확인</button>
-                        	</div> 
+                        	</div>
+                        	<input type= "hidden" name="bno" id="bno" value="${dto.bno}"><br>
+                        	<div style="width:700px; text-align:center">
+                        		<button type="button" id="btnUpdate" name="btnUpdate" class="btn btn-dark">확인</button>
+                        	</div><br>
                         </form>
                      </div>
                   </div>

@@ -18,8 +18,7 @@
 		});
 		$("#btnUpdate").click(function() {
 			location.href = "viewEdit.do?bno=${dto.bno}"
-		});
-
+		}); 
 		$("#btnDelete").click(function() { 
 			if (confirm("삭제하시겠습니까?")) {
 				location.href = "viewDelete.do?bno=${dto.bno}"
@@ -69,13 +68,9 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="titlepage text_align_left ">
-						<h2>${dto.title}</h2>
-						<p>${dto.writer}(${dto.name})님이쓴글입니다.
-						<p>
-							<fmt:formatDate value="${dto.regdate}"
-								pattern="yyyy-MM-dd HH:mm:ss" />
-						</p>
-						<p>조회수 : ${dto.viewCnt}</p>
+						<h2>🔊 ${dto.title}</h2>&nbsp;
+						<h3>🧑 ${dto.name}님이 ⏰ <fmt:formatDate value="${dto.regdate}"
+								pattern="yyyy-MM-dd HH:mm:ss" /> 에 작성한 글입니다! </h3> 
 					</div>
 				</div>
 			</div>

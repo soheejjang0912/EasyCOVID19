@@ -15,9 +15,7 @@ public interface BoardDAO {
 	public void delete(int bno) throws Exception; // 글 삭제
 
 	public List<BoardDTO> listAll(int start) throws Exception; // 목록
-
-	public void increaseViewcnt(int bno) throws Exception; // 조회수 증가 처리
-
+	
 	public int countArticle() throws Exception; // 레코드 갯수 계산
 	
 }
