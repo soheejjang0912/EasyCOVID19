@@ -22,19 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			from reply r, member m
 			where r.replyer= m.userid and bno=#{bno}
 			order by rno desc 
-		 
-	 	<!-- select R.* from(
-			select rno, bno, replytext, replyer, name, r.regdate, r.updatedate ,(select writer from board where bno = r.bno) writer
-			from reply r, member m
-			where r.replyer= m.userid and bno=#{bno}
-			order by rno desc 
-		)R 
-		limit 2 offset #{start, jdbcType=INTEGER} -->
 	 </select>
 	 
-  	 <select id="count" resultType="int">
-  	 	select count(*) from reply where bno=#{bno}
-  	 </select>
-  	  
 </mapper>
 

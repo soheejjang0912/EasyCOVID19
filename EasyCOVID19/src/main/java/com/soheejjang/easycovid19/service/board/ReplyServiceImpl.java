@@ -21,31 +21,8 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public List<ReplyDTO> list(Integer bno, int start, int end, HttpSession session) {
-		return replyDao.list(bno, start, end);
+	public List<ReplyDTO> list(Integer bno, HttpSession session) {
+		return replyDao.list(bno);
 	}
-
-	@Override
-	public int count(int bno) {
-		return replyDao.count(bno);
-	}
-
-	@Override
-	public void update(ReplyDTO dto) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(Integer rno) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ReplyDTO detail(int rno) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	 
+	
 }

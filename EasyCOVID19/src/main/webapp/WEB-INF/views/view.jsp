@@ -19,6 +19,11 @@
 		$("#btnUpdate").click(function() {
 			location.href = "viewEdit.do?bno=${dto.bno}"
 		}); 
+		$("#btnReplyDelete").click(function() { 
+			if (confirm("삭제하시겠습니까?")) {
+				location.href = "replyDelete.do?rno=${row.rno}"
+			}
+		});
 		$("#btnDelete").click(function() { 
 			if (confirm("삭제하시겠습니까?")) {
 				location.href = "viewDelete.do?bno=${dto.bno}"

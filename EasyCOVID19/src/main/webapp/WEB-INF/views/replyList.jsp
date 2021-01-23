@@ -5,6 +5,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+	
 <body>
 	<br>
 	<h3>👩👨댓글🧑👧</h3>
@@ -12,10 +13,13 @@
 	<table style="width: 700px">
 		<c:forEach var="row" items="${list}">
 			<tr>
-				<td>🧑 : ${row.name} (<fmt:formatDate value="${row.regdate}"
-						pattern="yyyy-MM-dd HH:mm:ss" />) <br> ${row.replytext}
-				</td>
+				<td>
+					🧑 : ${row.name} (<fmt:formatDate value="${row.regdate}"
+						pattern="yyyy-MM-dd HH:mm:ss" />)
+						<br> ${row.replytext}<br>
+				</td> 
 			</tr>
+			
 		</c:forEach> 
 	</table>
 	<br>
