@@ -57,28 +57,28 @@
                      </div>
                   </div>
                   <div class="col-lg-12 offset-lg-1 col-md-12 col-sm-9"> 
-                     <div class="navbar-area">
+                     <div class="navbar-area_center">
                         <nav class="site-navbar">
                            <ul> 
                               <li><a href="/EasyCOVID19" class="logo_midle">홈</a></li>
                               <li><a href="aboutSite.do">소개</a></li>
                               <li><a href="aboutCovid.do">COVID19?</a></li>
                               <li><a href="news.do">뉴스</a></li>
+	                          <li><a href="selfDiagnosis.do">자가진단</a></li>
                               <li><a href="board.do">참여마당</a></li> 
                               <!-- sessionScope.userId
                               		는 자바의 
                               	   session.getAttribute("userId")  -->
 							  <!-- 로그인 상태 -->                             
                               <c:if test="${sessionScope.userId != null}"> 
-	                              <li><a href="selfDiagnosis.do">자가진단</a></li>
 	                              <li><a href="memberEdit.do?userId=${sessionScope.userId}">회원정보</a></li>
 	                              <li><a href="logout.do">로그아웃</a></li>
 	                              <h3>${sessionScope.userId}님😊</h3>
 	                          </c:if>
                               <!-- 로그인 안했을경우 -->
                               <c:if test="${sessionScope.userId == null}"> 
-	                              <li><a href="login.do">로그인</a></li>
 	                              <li><a href="join.do">회원가입</a></li>
+	                              <li><a href="login.do">로그인</a></li> 
 	                          </c:if>
                            </ul>
                            <button class="nav-toggler">
