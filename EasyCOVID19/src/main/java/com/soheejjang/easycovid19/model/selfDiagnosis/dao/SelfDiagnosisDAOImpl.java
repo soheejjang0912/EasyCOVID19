@@ -35,22 +35,4 @@ public class SelfDiagnosisDAOImpl implements SelfDiagnosisDAO {
 		sqlSession.insert("selfDiagnosis.insert", dto); 
 	}
 
-	@Override
-	public SelfDiagnosisDTO read(int bno) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void update(SelfDiagnosisDTO dto) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void delete(int bno) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-
 }

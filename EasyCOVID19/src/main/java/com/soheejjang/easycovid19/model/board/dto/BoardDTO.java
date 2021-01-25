@@ -9,8 +9,7 @@ public class BoardDTO {
 	private String content;
 	private String writer;
 	private Date regdate; 
-	private String name; //작성자 이름 (member테이블과 조인) 
-	private String show; //화면표시 여부 
+	private String name; //작성자 이름 (member테이블과 조인)  
 	
 	public int getBno() {
 		return bno;
@@ -47,17 +46,11 @@ public class BoardDTO {
 	}
 	public void setName(String name) {
 		this.name = name;
-	} 
-	public String getShow() {
-		return show;
 	}
-	public void setShow(String show) {
-		this.show = show;
-	}
+	
 	@Override
 	public String toString() {
 		return "BoardDTO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer
-				+ ", regdate=" + regdate + ", name=" + name + ", show=" + show + "]";
-	}
-	 
+				+ ", regdate=" + regdate + ", name=" + name + "]";
+	}   
 }

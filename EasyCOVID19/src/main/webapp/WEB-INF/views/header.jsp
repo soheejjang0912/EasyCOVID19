@@ -56,7 +56,7 @@
                         <a href="index.html"></a>
                      </div>
                   </div>
-                  <div class="col-lg-12 offset-lg-1 col-md-12 col-sm-9"> 
+                  <div class="col-lg-12 offset-lg-1 col-md-12 col-sm-10"> 
                      <div class="navbar-area_center">
                         <nav class="site-navbar">
                            <ul> 

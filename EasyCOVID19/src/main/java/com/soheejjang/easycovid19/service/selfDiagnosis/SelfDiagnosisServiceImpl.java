@@ -25,22 +25,7 @@ public class SelfDiagnosisServiceImpl implements SelfDiagnosisService {
 	public void create(SelfDiagnosisDTO dto) throws Exception {
 		selfDiagnosisDao.create(dto);
 	}
-
-	@Override
-	public SelfDiagnosisDTO read(int bno) throws Exception { 
-		return null;
-	}
-
-	@Override
-	public void update(SelfDiagnosisDTO dto) throws Exception { 
-
-	}
-
-	@Override
-	public void delete(int bno) throws Exception { 
-		
-	} 
-
+ 
 	@Override
 	public int countArticle(String writer) throws Exception { 
 		return selfDiagnosisDao.countArticle(writer);

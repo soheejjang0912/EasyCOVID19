@@ -8,11 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 <insert id="insertReply">
   	 	insert into reply
   	 	(bno, replytext, replyer) values
-  	 	(#{bno}, #{replytext},  #{replyer})
-  	 	<!-- 
-  	 	insert into reply
-  	 	(bno, replytext, replyer) values
-  	 	(#{bno}, #{replytext}, #{replyer}) -->
+  	 	(#{bno}, #{replytext},  #{replyer})  
   	 </insert>   
   	 
 	 <select id="listReply"
