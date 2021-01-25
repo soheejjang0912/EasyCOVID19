@@ -63,7 +63,7 @@
 								<h2>회원가입 일자</h2>
 								<input class="contactus" type="text"
 									value="<fmt:formatDate value="${dto.joinDate}"
-											pattern="yyyy-MM-dd HH:mm:ss" />">
+											pattern="yyyy-MM-dd HH:mm:ss" />" readonly>
 							</div>
 							<div class="col-md-12">
 								<div style="color: red">${message}</div>
