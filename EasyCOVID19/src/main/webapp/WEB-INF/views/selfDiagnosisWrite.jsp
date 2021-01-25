@@ -22,7 +22,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="titlepage text_align_left">
-						<h2>글 쓰기</h2>
+						<h2>자가진단</h2>
 						<p>${update}</p>
 					</div>
 				</div>
