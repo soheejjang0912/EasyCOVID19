@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	 
 	 <select id="listReply"
 	 resultType="com.soheejjang.easycovid19.model.board.dto.ReplyDTO">
-	 	 	select rno, bno, replytext, replyer, name, r.regdate, r.updatedate 
+	 	 	select rno, bno, replytext, replyer, name, r.regdate
 	 	 	,(select writer from board where bno = r.bno) writer
 			from reply r, member m
 			where r.replyer= m.userid and bno=#{bno}

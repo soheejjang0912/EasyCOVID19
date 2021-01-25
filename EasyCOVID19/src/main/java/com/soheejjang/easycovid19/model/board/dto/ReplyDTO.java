@@ -9,6 +9,7 @@ public class ReplyDTO {
 	private String replyer;
 	private Date regdate;
 	private String writer;
+	private String name;
 	public int getRno() {
 		return rno;
 	}
@@ -44,11 +45,17 @@ public class ReplyDTO {
 	}
 	public void setWriter(String writer) {
 		this.writer = writer;
+	} 
+	public String getName() {
+		return name;
 	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	@Override
 	public String toString() {
 		return "ReplyDTO [rno=" + rno + ", bno=" + bno + ", replytext=" + replytext + ", replyer=" + replyer
-				+ ", regdate=" + regdate + ", writer=" + writer + "]";
-	}
-	
+				+ ", regdate=" + regdate + ", writer=" + writer + ", name=" + name + "]";
+	} 
 }
