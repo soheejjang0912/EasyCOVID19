@@ -175,7 +175,6 @@
 	</div>
 </div>
 </div>
-<br>
-<!-- end protect -->
+<br> 
 
 <jsp:include page="footer.jsp" />

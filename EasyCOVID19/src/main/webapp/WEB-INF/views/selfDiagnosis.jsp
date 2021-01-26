@@ -111,7 +111,4 @@
 	&nbsp;
 </div>
 
-
-
-<!--  footer -->
 <jsp:include page="footer.jsp" />

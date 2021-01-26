@@ -25,7 +25,7 @@
 	});
 </script>
 
-<div class="memberModification">
+<div class="memberEdit">
 	<div class="cases">
 		<div class="container-fluid">
 			<div class="row">
@@ -84,6 +84,5 @@
 	</div>
 	&nbsp;
 </div>
-
-<!--  footer -->
+ 
 <jsp:include page="footer.jsp" />

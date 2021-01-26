@@ -15,7 +15,7 @@
 		});
 	});
 </script>
-<!-- contact -->
+
 <div class="contact">
 	<div class="container">
 		<div class="row">
@@ -48,5 +48,4 @@
 	</div>
 </div>
 
-<!--  footer -->
 <jsp:include page="footer.jsp" />
